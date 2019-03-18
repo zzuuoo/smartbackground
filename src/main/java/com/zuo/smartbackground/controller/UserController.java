@@ -79,7 +79,7 @@ public class UserController {
     }
 
     @ResponseBody
-    @RequestMapping(value = "deleteDoctor",method = RequestMethod.POST)
+    @RequestMapping(value = "deleteDoctor",method = RequestMethod.GET)
     public int deleteDoctor(String account)
     {
         return userService.deleteDoctor(account);
@@ -145,7 +145,12 @@ public class UserController {
         doctorExample.createCriteria().andSectionIdEqualTo(sectionId);
         return userService.selectDoctorByExample(doctorExample);
     }
-
+    @ResponseBody
+    @RequestMapping(value = "get_user_by_account_and_status",method = RequestMethod.GET)
+    public List<User> get_user_by_account_and_status(String account,Integer status)
+    {
+        return userService.getUserByAccountAndStatus(account,status);
+    }
 
 
 }

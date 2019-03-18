@@ -127,6 +127,15 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
+    public List<User> getUserByAccountAndStatus(String account, int status) {
+        UserExample userExample = new UserExample();
+        userExample.createCriteria().andUserStatusEqualTo(status)
+                .andAccountEqualTo(account);
+
+        return userMapper.selectByExample(userExample);
+    }
+
+    @Override
     public int updateUser(User user) {
         if(user==null||user.getAccount()==null||user.getUserStatus()==null){
             return 0;

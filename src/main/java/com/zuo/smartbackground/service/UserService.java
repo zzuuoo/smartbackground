@@ -18,6 +18,7 @@ public interface UserService {
     List<Patient> selectPatientByExample(PatientExample patientExample);
     List<Admin> selectAdminByExample(AdminExample adminExample);
 
+    List<User> getUserByAccountAndStatus(String account,int status);
 
     int updateUser(User user);
     int updateDoctor(Doctor doctor);

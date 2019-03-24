@@ -93,6 +93,4 @@ public interface ScheduleMapper {
      * @mbggenerated
      */
     int updateByPrimaryKey(Schedule record);
-
-//    int updateRemainder(Schedule record);
 }

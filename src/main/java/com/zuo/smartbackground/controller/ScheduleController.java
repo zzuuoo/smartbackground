@@ -1,6 +1,7 @@
 package com.zuo.smartbackground.controller;
 
 import com.zuo.smartbackground.model.Schedule;
+import com.zuo.smartbackground.model.ScheduleT;
 import com.zuo.smartbackground.service.ScheduleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -46,8 +49,17 @@ public class ScheduleController {
     }
     @ResponseBody
     @RequestMapping(value = "/arrangeSchedule",method = RequestMethod.POST)
-    public int arrangeSchedule(Schedule schedule){
-        return scheduleService.arrangeSchedule(schedule);
+    public int arrangeSchedule(ScheduleT schedule){
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        System.out.println(format.format(new Date(schedule.getWorkTimeStart())));
+        Schedule s = new Schedule();
+        s.setWorkTimeStart(new Date(schedule.getWorkTimeStart()));
+        s.setW(schedule.getW());
+        s.setDoctorId(schedule.getDoctorId());
+        s.setRemainder(schedule.getRemainder());
+        s.setIsCancle(schedule.getIsCancle());
+        return scheduleService.arrangeSchedule(s);
+//        return 1;
     }
     @ResponseBody
     @RequestMapping(value = "/arrangeScheduleList",method = RequestMethod.POST)

@@ -315,6 +315,66 @@ public class ScheduleExample {
             return (Criteria) this;
         }
 
+        public Criteria andWIsNull() {
+            addCriterion("w is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andWIsNotNull() {
+            addCriterion("w is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andWEqualTo(Integer value) {
+            addCriterion("w =", value, "w");
+            return (Criteria) this;
+        }
+
+        public Criteria andWNotEqualTo(Integer value) {
+            addCriterion("w <>", value, "w");
+            return (Criteria) this;
+        }
+
+        public Criteria andWGreaterThan(Integer value) {
+            addCriterion("w >", value, "w");
+            return (Criteria) this;
+        }
+
+        public Criteria andWGreaterThanOrEqualTo(Integer value) {
+            addCriterion("w >=", value, "w");
+            return (Criteria) this;
+        }
+
+        public Criteria andWLessThan(Integer value) {
+            addCriterion("w <", value, "w");
+            return (Criteria) this;
+        }
+
+        public Criteria andWLessThanOrEqualTo(Integer value) {
+            addCriterion("w <=", value, "w");
+            return (Criteria) this;
+        }
+
+        public Criteria andWIn(List<Integer> values) {
+            addCriterion("w in", values, "w");
+            return (Criteria) this;
+        }
+
+        public Criteria andWNotIn(List<Integer> values) {
+            addCriterion("w not in", values, "w");
+            return (Criteria) this;
+        }
+
+        public Criteria andWBetween(Integer value1, Integer value2) {
+            addCriterion("w between", value1, value2, "w");
+            return (Criteria) this;
+        }
+
+        public Criteria andWNotBetween(Integer value1, Integer value2) {
+            addCriterion("w not between", value1, value2, "w");
+            return (Criteria) this;
+        }
+
         public Criteria andRemainderIsNull() {
             addCriterion("remainder is null");
             return (Criteria) this;

@@ -2,6 +2,7 @@ package com.zuo.smartbackground.service.serviceImpl;
 
 import com.zuo.smartbackground.dao.BookMapper;
 import com.zuo.smartbackground.dao.ScheduleMapper;
+import com.zuo.smartbackground.model.MakeSchedule;
 import com.zuo.smartbackground.model.Schedule;
 import com.zuo.smartbackground.model.ScheduleExample;
 import com.zuo.smartbackground.service.ScheduleService;
@@ -86,6 +87,15 @@ public class ScheduleServiceImpl implements ScheduleService{
         }else{
             return 0;
         }
+    }
+
+    @Override
+    public int makeSche(MakeSchedule makeSchedule) {
+        Schedule schedule = new Schedule();
+        schedule.setRemainder(makeSchedule.getRemainder());
+        schedule.setDoctorId(makeSchedule.getDoctorId());
+        schedule.setWorkTimeStart(makeSchedule.getDate());
+        return 0;
     }
 
     @Override

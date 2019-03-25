@@ -2,6 +2,7 @@ package com.zuo.smartbackground.model;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 public class ScheduleExample {
@@ -193,6 +194,32 @@ public class ScheduleExample {
                 throw new RuntimeException("Between values for " + property + " cannot be null");
             }
             criteria.add(new Criterion(condition, value1, value2));
+        }
+
+        protected void addCriterionForJDBCDate(String condition, Date value, String property) {
+            if (value == null) {
+                throw new RuntimeException("Value for " + property + " cannot be null");
+            }
+            addCriterion(condition, new java.sql.Date(value.getTime()), property);
+        }
+
+        protected void addCriterionForJDBCDate(String condition, List<Date> values, String property) {
+            if (values == null || values.size() == 0) {
+                throw new RuntimeException("Value list for " + property + " cannot be null or empty");
+            }
+            List<java.sql.Date> dateList = new ArrayList<java.sql.Date>();
+            Iterator<Date> iter = values.iterator();
+            while (iter.hasNext()) {
+                dateList.add(new java.sql.Date(iter.next().getTime()));
+            }
+            addCriterion(condition, dateList, property);
+        }
+
+        protected void addCriterionForJDBCDate(String condition, Date value1, Date value2, String property) {
+            if (value1 == null || value2 == null) {
+                throw new RuntimeException("Between values for " + property + " cannot be null");
+            }
+            addCriterion(condition, new java.sql.Date(value1.getTime()), new java.sql.Date(value2.getTime()), property);
         }
 
         public Criteria andScheduleIdIsNull() {
@@ -446,52 +473,52 @@ public class ScheduleExample {
         }
 
         public Criteria andWorkTimeStartEqualTo(Date value) {
-            addCriterion("work_time_start =", value, "workTimeStart");
+            addCriterionForJDBCDate("work_time_start =", value, "workTimeStart");
             return (Criteria) this;
         }
 
         public Criteria andWorkTimeStartNotEqualTo(Date value) {
-            addCriterion("work_time_start <>", value, "workTimeStart");
+            addCriterionForJDBCDate("work_time_start <>", value, "workTimeStart");
             return (Criteria) this;
         }
 
         public Criteria andWorkTimeStartGreaterThan(Date value) {
-            addCriterion("work_time_start >", value, "workTimeStart");
+            addCriterionForJDBCDate("work_time_start >", value, "workTimeStart");
             return (Criteria) this;
         }
 
         public Criteria andWorkTimeStartGreaterThanOrEqualTo(Date value) {
-            addCriterion("work_time_start >=", value, "workTimeStart");
+            addCriterionForJDBCDate("work_time_start >=", value, "workTimeStart");
             return (Criteria) this;
         }
 
         public Criteria andWorkTimeStartLessThan(Date value) {
-            addCriterion("work_time_start <", value, "workTimeStart");
+            addCriterionForJDBCDate("work_time_start <", value, "workTimeStart");
             return (Criteria) this;
         }
 
         public Criteria andWorkTimeStartLessThanOrEqualTo(Date value) {
-            addCriterion("work_time_start <=", value, "workTimeStart");
+            addCriterionForJDBCDate("work_time_start <=", value, "workTimeStart");
             return (Criteria) this;
         }
 
         public Criteria andWorkTimeStartIn(List<Date> values) {
-            addCriterion("work_time_start in", values, "workTimeStart");
+            addCriterionForJDBCDate("work_time_start in", values, "workTimeStart");
             return (Criteria) this;
         }
 
         public Criteria andWorkTimeStartNotIn(List<Date> values) {
-            addCriterion("work_time_start not in", values, "workTimeStart");
+            addCriterionForJDBCDate("work_time_start not in", values, "workTimeStart");
             return (Criteria) this;
         }
 
         public Criteria andWorkTimeStartBetween(Date value1, Date value2) {
-            addCriterion("work_time_start between", value1, value2, "workTimeStart");
+            addCriterionForJDBCDate("work_time_start between", value1, value2, "workTimeStart");
             return (Criteria) this;
         }
 
         public Criteria andWorkTimeStartNotBetween(Date value1, Date value2) {
-            addCriterion("work_time_start not between", value1, value2, "workTimeStart");
+            addCriterionForJDBCDate("work_time_start not between", value1, value2, "workTimeStart");
             return (Criteria) this;
         }
 

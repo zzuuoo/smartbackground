@@ -10,7 +10,7 @@
     <result column="doctor_id" jdbcType="INTEGER" property="doctorId" />
     <result column="w" jdbcType="INTEGER" property="w" />
     <result column="remainder" jdbcType="INTEGER" property="remainder" />
-    <result column="work_time_start" jdbcType="TIMESTAMP" property="workTimeStart" />
+    <result column="work_time_start" jdbcType="DATE" property="workTimeStart" />
     <result column="is_cancle" jdbcType="BIT" property="isCancle" />
   </resultMap>
   <sql id="Example_Where_Clause">
@@ -141,7 +141,7 @@
       remainder, work_time_start, is_cancle
       )
     values (#{scheduleId,jdbcType=INTEGER}, #{doctorId,jdbcType=INTEGER}, #{w,jdbcType=INTEGER}, 
-      #{remainder,jdbcType=INTEGER}, #{workTimeStart,jdbcType=TIMESTAMP}, #{isCancle,jdbcType=BIT}
+      #{remainder,jdbcType=INTEGER}, #{workTimeStart,jdbcType=DATE}, #{isCancle,jdbcType=BIT}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.zuo.smartbackground.model.Schedule">
@@ -184,7 +184,7 @@
         #{remainder,jdbcType=INTEGER},
       </if>
       <if test="workTimeStart != null">
-        #{workTimeStart,jdbcType=TIMESTAMP},
+        #{workTimeStart,jdbcType=DATE},
       </if>
       <if test="isCancle != null">
         #{isCancle,jdbcType=BIT},
@@ -221,7 +221,7 @@
         remainder = #{record.remainder,jdbcType=INTEGER},
       </if>
       <if test="record.workTimeStart != null">
-        work_time_start = #{record.workTimeStart,jdbcType=TIMESTAMP},
+        work_time_start = #{record.workTimeStart,jdbcType=DATE},
       </if>
       <if test="record.isCancle != null">
         is_cancle = #{record.isCancle,jdbcType=BIT},
@@ -241,7 +241,7 @@
       doctor_id = #{record.doctorId,jdbcType=INTEGER},
       w = #{record.w,jdbcType=INTEGER},
       remainder = #{record.remainder,jdbcType=INTEGER},
-      work_time_start = #{record.workTimeStart,jdbcType=TIMESTAMP},
+      work_time_start = #{record.workTimeStart,jdbcType=DATE},
       is_cancle = #{record.isCancle,jdbcType=BIT}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -264,7 +264,7 @@
         remainder = #{remainder,jdbcType=INTEGER},
       </if>
       <if test="workTimeStart != null">
-        work_time_start = #{workTimeStart,jdbcType=TIMESTAMP},
+        work_time_start = #{workTimeStart,jdbcType=DATE},
       </if>
       <if test="isCancle != null">
         is_cancle = #{isCancle,jdbcType=BIT},
@@ -281,7 +281,7 @@
     set doctor_id = #{doctorId,jdbcType=INTEGER},
       w = #{w,jdbcType=INTEGER},
       remainder = #{remainder,jdbcType=INTEGER},
-      work_time_start = #{workTimeStart,jdbcType=TIMESTAMP},
+      work_time_start = #{workTimeStart,jdbcType=DATE},
       is_cancle = #{isCancle,jdbcType=BIT}
     where schedule_id = #{scheduleId,jdbcType=INTEGER}
   </update>

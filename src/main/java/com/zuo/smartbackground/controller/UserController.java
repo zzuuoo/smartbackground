@@ -143,7 +143,9 @@ public class UserController {
     {
         DoctorExample doctorExample = new DoctorExample();
         doctorExample.createCriteria().andSectionIdEqualTo(sectionId);
-        return userService.selectDoctorByExample(doctorExample);
+        List<Doctor> doctors = userService.selectDoctorByExample(doctorExample);
+        System.out.println(doctors.get(0).getHonour());
+        return doctors;
     }
     @ResponseBody
     @RequestMapping(value = "get_user_by_account_and_status",method = RequestMethod.GET)

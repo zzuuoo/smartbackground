@@ -853,6 +853,76 @@ public class DoctorExample {
             addCriterion("section_id not between", value1, value2, "sectionId");
             return (Criteria) this;
         }
+
+        public Criteria andHonourIsNull() {
+            addCriterion("honour is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andHonourIsNotNull() {
+            addCriterion("honour is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andHonourEqualTo(String value) {
+            addCriterion("honour =", value, "honour");
+            return (Criteria) this;
+        }
+
+        public Criteria andHonourNotEqualTo(String value) {
+            addCriterion("honour <>", value, "honour");
+            return (Criteria) this;
+        }
+
+        public Criteria andHonourGreaterThan(String value) {
+            addCriterion("honour >", value, "honour");
+            return (Criteria) this;
+        }
+
+        public Criteria andHonourGreaterThanOrEqualTo(String value) {
+            addCriterion("honour >=", value, "honour");
+            return (Criteria) this;
+        }
+
+        public Criteria andHonourLessThan(String value) {
+            addCriterion("honour <", value, "honour");
+            return (Criteria) this;
+        }
+
+        public Criteria andHonourLessThanOrEqualTo(String value) {
+            addCriterion("honour <=", value, "honour");
+            return (Criteria) this;
+        }
+
+        public Criteria andHonourLike(String value) {
+            addCriterion("honour like", value, "honour");
+            return (Criteria) this;
+        }
+
+        public Criteria andHonourNotLike(String value) {
+            addCriterion("honour not like", value, "honour");
+            return (Criteria) this;
+        }
+
+        public Criteria andHonourIn(List<String> values) {
+            addCriterion("honour in", values, "honour");
+            return (Criteria) this;
+        }
+
+        public Criteria andHonourNotIn(List<String> values) {
+            addCriterion("honour not in", values, "honour");
+            return (Criteria) this;
+        }
+
+        public Criteria andHonourBetween(String value1, String value2) {
+            addCriterion("honour between", value1, value2, "honour");
+            return (Criteria) this;
+        }
+
+        public Criteria andHonourNotBetween(String value1, String value2) {
+            addCriterion("honour not between", value1, value2, "honour");
+            return (Criteria) this;
+        }
     }
 
     /**

@@ -93,4 +93,6 @@ public interface DoctorMapper {
      * @mbggenerated
      */
     int updateByPrimaryKey(Doctor record);
+
+    List<Integer> selectBySectionId(Integer sectionId);
 }

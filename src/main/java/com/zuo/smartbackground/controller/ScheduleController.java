@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -33,8 +34,20 @@ public class ScheduleController {
     }
     @ResponseBody
     @RequestMapping(value = "/getScheduleBySectionId",method = RequestMethod.GET)
-    public List<Schedule> getScheduleBySectionId(int sectionId){
-        return scheduleService.getScheduleBySessionID(sectionId);
+    public List<ScheduleT> getScheduleBySectionId(int sectionId){
+        List<Schedule> schedules = scheduleService.getScheduleBySessionID(sectionId);
+        List<ScheduleT> scheduleTS = new ArrayList<>();
+        for (Schedule s:schedules){
+            ScheduleT scheduleT = new ScheduleT();
+            scheduleT.setDoctorId(s.getDoctorId());
+            scheduleT.setIsCancle(s.getIsCancle());
+            scheduleT.setRemainder(s.getRemainder());
+            scheduleT.setW(s.getW());
+            scheduleT.setWorkTimeStart(s.getWorkTimeStart().getTime());
+            scheduleT.setScheduleId(s.getScheduleId());
+            scheduleTS.add(scheduleT);
+        }
+        return scheduleTS;
     }
 
     @ResponseBody

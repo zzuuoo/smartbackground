@@ -364,7 +364,7 @@
     where doctor_id = #{doctorId,jdbcType=INTEGER}
   </update>
 
-  <select id="selectBySectionId" parameterType="java.lang.Integer" resultMap="java.lang.Integer">
+  <select id="selectBySectionId" parameterType="java.lang.Integer" resultType="java.lang.Integer">
     select
     <include refid="Base_Column_List" />
     from doctor

@@ -1,6 +1,7 @@
 package com.zuo.smartbackground.service.serviceImpl;
 
 import com.zuo.smartbackground.dao.BookMapper;
+import com.zuo.smartbackground.dao.DoctorMapper;
 import com.zuo.smartbackground.dao.ScheduleMapper;
 import com.zuo.smartbackground.model.MakeSchedule;
 import com.zuo.smartbackground.model.Schedule;
@@ -19,6 +20,8 @@ public class ScheduleServiceImpl implements ScheduleService{
     private ScheduleMapper scheduleMapper;
     @Autowired
     private BookMapper bookMapper;
+    @Autowired
+    private DoctorMapper doctorMapper;
     @Override
     public int arrangeSchedule(Schedule schedule) {
         return scheduleMapper.insertSelective(schedule);
@@ -108,8 +111,8 @@ public class ScheduleServiceImpl implements ScheduleService{
     @Override
     public List<Schedule> getScheduleBySessionID(int sectionID) {
         ScheduleExample scheduleExample = new ScheduleExample();
-        scheduleExample.createCriteria().andDoctorIdIn(scheduleMapper.selectBySectionId(sectionID))
-                .andWorkTimeStartGreaterThan(new Date(new Date().getTime()+3600*4));
+        scheduleExample.createCriteria().andDoctorIdIn(doctorMapper.selectBySectionId(sectionID))
+                .andWorkTimeStartGreaterThan(new Date(new Date().getTime()));
         return scheduleMapper.selectByExample(scheduleExample);
     }
 

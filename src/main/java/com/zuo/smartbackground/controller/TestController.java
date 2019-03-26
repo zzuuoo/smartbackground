@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class TestController {
 
     @ResponseBody
-    @RequestMapping("/a")
+    @RequestMapping("/checkOk")
     public String getSttt()
     {
-        return "左树才";
+        return "ok";
     }
 }

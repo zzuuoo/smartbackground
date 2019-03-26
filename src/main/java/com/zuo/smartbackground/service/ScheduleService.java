@@ -14,6 +14,7 @@ public interface ScheduleService {
     int unBookSchedule(int scheduleID);
     int makeSche(MakeSchedule makeSchedule);
     List<Schedule> getScheduleByDoctorID(int doctorID);
+    List<Schedule> getScheduleBySessionID(int sectionID);
     List<Schedule> getAllSchedule();
     List<Schedule> getAllFromNowSchedule();
 

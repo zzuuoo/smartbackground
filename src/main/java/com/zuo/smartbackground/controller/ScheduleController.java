@@ -31,6 +31,11 @@ public class ScheduleController {
     public List<Schedule> getScheduleByDoctorId(int doctorId){
         return scheduleService.getScheduleByDoctorID(doctorId);
     }
+    @ResponseBody
+    @RequestMapping(value = "/getScheduleBySectionId",method = RequestMethod.GET)
+    public List<Schedule> getScheduleBySectionId(int sectionId){
+        return scheduleService.getScheduleBySessionID(sectionId);
+    }
 
     @ResponseBody
     @RequestMapping(value = "/getAllSchedlue",method = RequestMethod.GET)

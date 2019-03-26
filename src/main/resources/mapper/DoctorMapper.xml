@@ -363,4 +363,11 @@
       honour = #{honour,jdbcType=VARCHAR}
     where doctor_id = #{doctorId,jdbcType=INTEGER}
   </update>
+
+  <select id="selectBySectionId" parameterType="java.lang.Integer" resultMap="java.lang.Integer">
+    select
+    <include refid="Base_Column_List" />
+    from doctor
+    where section_id = #{sectionId,jdbcType=INTEGER}
+  </select>
 </mapper>

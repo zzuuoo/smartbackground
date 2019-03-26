@@ -106,6 +106,14 @@ public class ScheduleServiceImpl implements ScheduleService{
     }
 
     @Override
+    public List<Schedule> getScheduleBySessionID(int sectionID) {
+        ScheduleExample scheduleExample = new ScheduleExample();
+        scheduleExample.createCriteria().andDoctorIdIn(scheduleMapper.selectBySectionId(sectionID))
+                .andWorkTimeStartGreaterThan(new Date(new Date().getTime()+3600*4));
+        return scheduleMapper.selectByExample(scheduleExample);
+    }
+
+    @Override
     public List<Schedule> getAllSchedule() {
         return scheduleMapper.selectByExample(null);
     }

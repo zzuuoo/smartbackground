@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.*;
 /**
  * 登录验证
  */
-@CrossOrigin
-@Controller
+@CrossOrigin//跨域
+@RestController
 public class LoginController {
     @Autowired
     private LoginService loginService;
     public static  int n = 1;
-    @ResponseBody
+
     @RequestMapping(value = "/login",method = RequestMethod.POST)
     public User login(User re)
     {

@@ -1,5 +1,7 @@
 package com.zuo.smartbackground.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 public class Schedule {
@@ -41,6 +43,7 @@ public class Schedule {
      *
      * @mbggenerated
      */
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Hongkong")
     private Date workTimeStart;
 
     /**

@@ -8,64 +8,65 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-@Controller
+@RestController
 @RequestMapping("/schedule")
 public class ScheduleController {
 
     @Autowired
     private ScheduleService scheduleService;
 
-    @ResponseBody
+
     @RequestMapping(value = "/getValiScheduleByDoctorId",method = RequestMethod.GET)
     public List<Schedule> getValiScheduleByDoctorId(int doctorId){
         return scheduleService.getValiScheduleByDoctorId(doctorId);
     }
 
-    @ResponseBody
+
     @RequestMapping(value = "/getScheduleByDoctorId",method = RequestMethod.GET)
     public List<Schedule> getScheduleByDoctorId(int doctorId){
         return scheduleService.getScheduleByDoctorID(doctorId);
     }
-    @ResponseBody
+
     @RequestMapping(value = "/getScheduleBySectionId",method = RequestMethod.GET)
-    public List<ScheduleT> getScheduleBySectionId(int sectionId){
+    public List<Schedule> getScheduleBySectionId(int sectionId){
         List<Schedule> schedules = scheduleService.getScheduleBySessionID(sectionId);
-        List<ScheduleT> scheduleTS = new ArrayList<>();
-        for (Schedule s:schedules){
-            ScheduleT scheduleT = new ScheduleT();
-            scheduleT.setDoctorId(s.getDoctorId());
-            scheduleT.setIsCancle(s.getIsCancle());
-            scheduleT.setRemainder(s.getRemainder());
-            scheduleT.setW(s.getW());
-            scheduleT.setWorkTimeStart(s.getWorkTimeStart().getTime());
-            scheduleT.setScheduleId(s.getScheduleId());
-            scheduleTS.add(scheduleT);
-        }
-        return scheduleTS;
+//        List<ScheduleT> scheduleTS = new ArrayList<>();
+//        for (Schedule s:schedules){
+//            ScheduleT scheduleT = new ScheduleT();
+//            scheduleT.setDoctorId(s.getDoctorId());
+//            scheduleT.setIsCancle(s.getIsCancle());
+//            scheduleT.setRemainder(s.getRemainder());
+//            scheduleT.setW(s.getW());
+//            scheduleT.setWorkTimeStart(s.getWorkTimeStart().getTime());
+//            scheduleT.setScheduleId(s.getScheduleId());
+//            scheduleTS.add(scheduleT);
+//        }
+        return schedules;
     }
 
-    @ResponseBody
+
     @RequestMapping(value = "/getAllSchedlue",method = RequestMethod.GET)
     public List<Schedule> getAllSchedlue(){
         return scheduleService.getAllSchedule();
     }
-    @ResponseBody
+
     @RequestMapping(value = "/bookSchedlue",method = RequestMethod.GET)
     public int bookSchedule(int scheduleId){
         return scheduleService.bookSchedule(scheduleId);
     }
-    @ResponseBody
+
     @RequestMapping(value = "/unBookSchedule",method = RequestMethod.GET)
     public int unBookSchedule(int scheduleId){
         return scheduleService.unBookSchedule(scheduleId);
     }
-    @ResponseBody
+
     @RequestMapping(value = "/arrangeSchedule",method = RequestMethod.POST)
     public int arrangeSchedule(ScheduleT schedule){
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
@@ -79,12 +80,12 @@ public class ScheduleController {
         return scheduleService.arrangeSchedule(s);
 //        return 1;
     }
-    @ResponseBody
+
     @RequestMapping(value = "/arrangeScheduleList",method = RequestMethod.POST)
     public int arrangeScheduleList(List<Schedule> schedules){
         return scheduleService.arrangeScheduleList(schedules);
     }
-    @ResponseBody
+
     @RequestMapping(value = "/getAllFromNowSchedule",method = RequestMethod.GET)
     public List<Schedule> getAllFromNowSchedule(){
         return scheduleService.getAllFromNowSchedule();

@@ -2,6 +2,7 @@ package com.zuo.smartbackground.service.serviceImpl;
 
 import com.zuo.smartbackground.dao.PatientMapper;
 import com.zuo.smartbackground.dao.PatientRecordMapper;
+import com.zuo.smartbackground.model.Doctor;
 import com.zuo.smartbackground.model.Patient;
 import com.zuo.smartbackground.model.PatientRecord;
 import com.zuo.smartbackground.model.PatientRecordExample;
@@ -31,5 +32,32 @@ public class PatientRecorrdServiceImpl implements PatientRecordService {
         PatientRecordExample patientRecordExample = new PatientRecordExample();
         patientRecordExample.createCriteria().andPatientIdEqualTo(patient.getPatientId());
         return patientRecordMapper.selectByExample(patientRecordExample);
+    }
+
+    @Override
+    public List<PatientRecord> getPatientRecordByDoctorAccount(String account) {
+        Doctor doctor = userService.getDoctorByAccount(account);
+        if(doctor==null||doctor.getDoctorId()==null)
+        {
+            return null;
+        }
+        PatientRecordExample patientRecordExample = new PatientRecordExample();
+        patientRecordExample.createCriteria().andDoctorIdEqualTo(doctor.getDoctorId());
+        return patientRecordMapper.selectByExample(patientRecordExample);
+    }
+
+    @Override
+    public int createPatientRecord(PatientRecord patientRecord) {
+        return patientRecordMapper.insertSelective(patientRecord);
+    }
+
+    @Override
+    public int deletePatientRecord(long patientRecordId) {
+        return patientRecordMapper.deleteByPrimaryKey(patientRecordId);
+    }
+
+    @Override
+    public int updatePatientRecord(PatientRecord patientRecord) {
+        return patientRecordMapper.updateByPrimaryKeySelective(patientRecord);
     }
 }

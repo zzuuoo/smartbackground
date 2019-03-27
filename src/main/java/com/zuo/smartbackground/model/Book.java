@@ -1,5 +1,7 @@
 package com.zuo.smartbackground.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 public class Book {
@@ -33,6 +35,7 @@ public class Book {
      *
      * @mbggenerated
      */
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Hongkong")
     private Date bookTime;
 
     /**

@@ -327,7 +327,10 @@ CREATE TABLE `schedule` (
 -- ----------------------------
 -- Records of schedule
 -- ----------------------------
-INSERT INTO `schedule` VALUES ('1', '1','1', '40', '2029-03-05 08:00:00','0');
+INSERT INTO `schedule` VALUES ('1', '1','1', '40', '2029-03-05','0');
+INSERT INTO `schedule` VALUES ('2', '1','2', '40', '2029-03-07','0');
+INSERT INTO `schedule` VALUES ('3', '1','1', '40', '2029-03-08','0');
+INSERT INTO `schedule` VALUES ('4', '2','1', '40', '2029-03-09','0');
 
 
 

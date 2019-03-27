@@ -77,7 +77,14 @@ public class ScheduleController {
         s.setDoctorId(schedule.getDoctorId());
         s.setRemainder(schedule.getRemainder());
         s.setIsCancle(schedule.getIsCancle());
-        return scheduleService.arrangeSchedule(s);
+        int x = -1;
+        if (s.getW()==0){
+            s.setW(1);
+            x=x+scheduleService.arrangeSchedule(s);
+            s.setW(2);
+            x=x+scheduleService.arrangeSchedule(s);
+        }
+        return x;
 //        return 1;
     }
 

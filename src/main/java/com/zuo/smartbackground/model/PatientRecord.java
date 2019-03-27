@@ -36,7 +36,7 @@ public class PatientRecord {
      *
      * @mbggenerated
      */
-//    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Hongkong")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Hongkong")
     private Date admissionTime;
 
     /**

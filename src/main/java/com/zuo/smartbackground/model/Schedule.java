@@ -43,7 +43,7 @@ public class Schedule {
      *
      * @mbggenerated
      */
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Hongkong")
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "Hongkong")
     private Date workTimeStart;
 
     /**

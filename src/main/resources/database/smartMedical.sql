@@ -315,7 +315,7 @@ DROP TABLE IF EXISTS `schedule`;
 CREATE TABLE `schedule` (
   `schedule_id` int(11) NOT NULL AUTO_INCREMENT,
   `doctor_id` int(11) NOT NULL,
-  `w` int(1) default 0 NOT NULL,
+  `w` int(1) default 1 NOT NULL,
   `remainder` int(3) default 40 NOT NULL,
   `work_time_start` date NOT NULL,
   `is_cancle` boolean default false NOT NULL,
@@ -327,7 +327,7 @@ CREATE TABLE `schedule` (
 -- ----------------------------
 -- Records of schedule
 -- ----------------------------
-INSERT INTO `schedule` VALUES ('1', '1','0', '40', '2019-03-05 08:00:00','0');
+INSERT INTO `schedule` VALUES ('1', '1','1', '40', '2029-03-05 08:00:00','0');
 
 
 

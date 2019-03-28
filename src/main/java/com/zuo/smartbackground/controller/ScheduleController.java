@@ -57,15 +57,15 @@ public class ScheduleController {
         return scheduleService.getAllSchedule();
     }
 
-    @RequestMapping(value = "/bookSchedlue",method = RequestMethod.GET)
-    public int bookSchedule(int scheduleId){
-        return scheduleService.bookSchedule(scheduleId);
-    }
+//    @RequestMapping(value = "/bookSchedlue",method = RequestMethod.GET)
+//    public int bookSchedule(int scheduleId){
+//        return scheduleService.bookSchedule(scheduleId);
+//    }
 
-    @RequestMapping(value = "/unBookSchedule",method = RequestMethod.GET)
-    public int unBookSchedule(int scheduleId){
-        return scheduleService.unBookSchedule(scheduleId);
-    }
+//    @RequestMapping(value = "/unBookSchedule",method = RequestMethod.GET)
+//    public int unBookSchedule(int scheduleId){
+//        return scheduleService.unBookSchedule(scheduleId);
+//    }
 
     @RequestMapping(value = "/arrangeSchedule",method = RequestMethod.POST)
     public int arrangeSchedule(ScheduleT schedule){

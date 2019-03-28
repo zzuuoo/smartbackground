@@ -285,14 +285,14 @@
       is_cancle = #{isCancle,jdbcType=BIT}
     where schedule_id = #{scheduleId,jdbcType=INTEGER}
   </update>
-  <!--<update id="updateRemainder" parameterType="map" >-->
-    <!--update schedule s-->
-    <!--set s.remainder = s.remainder+1-->
-    <!--where schedule_id = #{scheduleId,jdbcType=INTEGER}-->
-  <!--</update>-->
-  <!--<update id="updateUnRemainder" parameterType="map" >-->
-    <!--update schedule s-->
-    <!--set s.remainder = s.remainder-1-->
-    <!--where schedule_id = #{scheduleId,jdbcType=INTEGER}-->
-  <!--</update>-->
+  <update id="updateRemainder" parameterType="java.lang.Integer" >
+    update schedule
+    set  remainder = remainder-1
+    where schedule_id = #{scheduleId,jdbcType=INTEGER} AND remainder>0
+  </update>
+  <update id="updateUnRemainder" parameterType="java.lang.Integer" >
+    update schedule
+    set  remainder = remainder+1
+    where schedule_id = #{scheduleId,jdbcType=INTEGER}
+  </update>
 </mapper>

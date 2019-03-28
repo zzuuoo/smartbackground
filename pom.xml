@@ -94,6 +94,15 @@
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 		</dependency>
+
+		<!--spring boot 与redis应用基本环境配置 -->
+		<!--<dependency>-->
+
+			<!--<groupId>org.springframework.session</groupId>-->
+
+			<!--<artifactId>spring-session-data-redis</artifactId>-->
+
+		<!--</dependency>-->
 	</dependencies>
 
 	<build>

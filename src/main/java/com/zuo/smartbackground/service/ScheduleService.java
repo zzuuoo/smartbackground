@@ -10,8 +10,8 @@ public interface ScheduleService {
     int arrangeScheduleList(List<Schedule> schedules);
     int cancleSchedule(Schedule schedule);
     int cancleScheduleList(List<Schedule> schedules);
-    int bookSchedule(int scheduleID);
-    int unBookSchedule(int scheduleID);
+//    int bookSchedule(int scheduleID);
+//    int unBookSchedule(int scheduleID);
     int makeSche(MakeSchedule makeSchedule);
     List<Schedule> getScheduleByDoctorID(int doctorID);
     List<Schedule> getScheduleBySessionID(int sectionID);

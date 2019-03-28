@@ -39,58 +39,21 @@ public class ScheduleServiceImpl implements ScheduleService{
 
     @Override
     public int cancleSchedule(Schedule schedule) {
-        return 0;
+        return scheduleMapper.updateByPrimaryKeySelective(schedule);
     }
 
     @Override
-    public int cancleScheduleList(List<Schedule> schedules) {
-        return 0;
+    public int cancleScheduleList(List<Schedule> schedules)
+    {
+        int i = 0;
+        for(Schedule s:schedules)
+        {
+            i = scheduleMapper.updateByPrimaryKeySelective(s);
+        }
+        return i;
     }
 
-    //当事务提交了才释放该行级锁
-    @Transactional(isolation = Isolation.READ_COMMITTED)
-    @Override
-    public int bookSchedule(int scheduleID) {
-        ScheduleExample scheduleExample = new ScheduleExample();
-        scheduleExample.createCriteria().andScheduleIdEqualTo(scheduleID);
-        Schedule schedule = scheduleMapper.selectByPrimaryKey(scheduleID);
-        int res = 0;
-        if(schedule!=null&&schedule.getRemainder()>0)
-        {
-            Schedule s = new Schedule();
-            s.setRemainder(schedule.getRemainder()-1);
-            res =  scheduleMapper.updateByExampleSelective(s,scheduleExample);
-        }
-        if(res==1)
-        {
-//            Book book = new Book();
-//            book.setScheduleId(scheduleID);
-//            book.setBookTime(new Date());
-//            book.setIsAvaliablity(true);
-//            book.setIsCancle(false);
-////            book.setPatientId();
-//            bookMapper.insertSelective(book);
-        }
 
-        return res;
-
-    }
-    //当事务提交了才释放该行级锁
-    @Transactional(isolation = Isolation.READ_COMMITTED)
-    @Override
-    public int unBookSchedule(int scheduleID) {
-        ScheduleExample scheduleExample = new ScheduleExample();
-        scheduleExample.createCriteria().andScheduleIdEqualTo(scheduleID);
-        Schedule schedule = scheduleMapper.selectByPrimaryKey(scheduleID);
-        if(schedule!=null)
-        {
-            Schedule s = new Schedule();
-            s.setRemainder(schedule.getRemainder()+1);
-            return scheduleMapper.updateByExampleSelective(s,scheduleExample);
-        }else{
-            return 0;
-        }
-    }
 
     @Override
     public int makeSche(MakeSchedule makeSchedule) {

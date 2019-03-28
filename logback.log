@@ -1,0 +1,111 @@
+12:01:15.996 logback [main] INFO  c.z.s.SmartbackgroundApplication - Starting SmartbackgroundApplication on zuoweixingdeMacBook-Pro.local with PID 89232 (/Users/zuoweixing/graduation/smartbackground/target/classes started by zuoweixing in /Users/zuoweixing/graduation/smartbackground)
+12:01:15.999 logback [main] INFO  c.z.s.SmartbackgroundApplication - No active profile set, falling back to default profiles: default
+12:01:17.302 logback [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+12:01:17.315 logback [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+12:01:17.325 logback [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+12:01:17.325 logback [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.14]
+12:01:17.333 logback [main] INFO  o.a.c.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/zuoweixing/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+12:01:17.407 logback [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+12:01:17.407 logback [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1356 ms
+12:01:17.446 logback [main] INFO  o.s.b.web.servlet.RegistrationBean - Filter characterEncodingFilter was not registered (possibly already registered?)
+12:01:17.505 logback [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+12:01:18.101 logback [main] INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+12:01:18.662 logback [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+12:01:18.964 logback [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+12:01:18.998 logback [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+12:01:19.001 logback [main] INFO  c.z.s.SmartbackgroundApplication - Started SmartbackgroundApplication in 23.552 seconds (JVM running for 29.136)
+12:01:46.319 logback [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+12:01:46.320 logback [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+12:01:46.332 logback [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 12 ms
+12:01:46.358 logback [http-nio-8080-exec-1] INFO  c.z.s.controller.TestController - 日志输出 info
+12:01:46.359 logback [http-nio-8080-exec-1] WARN  c.z.s.controller.TestController - 日志输出 warn
+12:01:46.359 logback [http-nio-8080-exec-1] ERROR c.z.s.controller.TestController - 日志输出 error
+12:03:12.766 logback [Thread-50] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+12:03:12.772 logback [Thread-50] INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+19:03:28 12:03:42.447 logback [main] INFO  c.z.s.SmartbackgroundApplication - Starting SmartbackgroundApplication on zuoweixingdeMacBook-Pro.local with PID 89254 (/Users/zuoweixing/graduation/smartbackground/target/classes started by zuoweixing in /Users/zuoweixing/graduation/smartbackground)
+19:03:28 12:03:42.457 logback [main] INFO  c.z.s.SmartbackgroundApplication - No active profile set, falling back to default profiles: default
+19:03:28 12:03:44.091 logback [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+19:03:28 12:03:44.218 logback [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+19:03:28 12:03:44.227 logback [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+19:03:28 12:03:44.228 logback [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.14]
+19:03:28 12:03:44.242 logback [main] INFO  o.a.c.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/zuoweixing/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+19:03:28 12:03:44.358 logback [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+19:03:28 12:03:44.359 logback [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1852 ms
+19:03:28 12:03:44.424 logback [main] INFO  o.s.b.web.servlet.RegistrationBean - Filter characterEncodingFilter was not registered (possibly already registered?)
+19:03:28 12:03:44.492 logback [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+19:03:28 12:03:45.000 logback [main] INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+19:03:28 12:03:45.658 logback [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+19:03:28 12:03:46.130 logback [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+19:03:28 12:03:46.164 logback [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+19:03:28 12:03:46.168 logback [main] INFO  c.z.s.SmartbackgroundApplication - Started SmartbackgroundApplication in 24.352 seconds (JVM running for 30.152)
+19:03:28 12:05:11.416 logback [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+19:03:28 12:05:11.418 logback [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+19:03:28 12:05:11.481 logback [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 63 ms
+19:03:28 12:05:11.597 logback [http-nio-8080-exec-1] INFO  c.z.s.controller.TestController - 日志输出 info
+19:03:28 12:05:11.598 logback [http-nio-8080-exec-1] WARN  c.z.s.controller.TestController - 日志输出 warn
+19:03:28 12:05:11.598 logback [http-nio-8080-exec-1] ERROR c.z.s.controller.TestController - 日志输出 error
+19:03:28 12:05:15.026 logback [http-nio-8080-exec-2] INFO  c.z.s.controller.TestController - 日志输出 info
+19:03:28 12:05:15.026 logback [http-nio-8080-exec-2] WARN  c.z.s.controller.TestController - 日志输出 warn
+19:03:28 12:05:15.027 logback [http-nio-8080-exec-2] ERROR c.z.s.controller.TestController - 日志输出 error
+19:03:28 12:05:45.271 logback [Thread-53] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+19:03:28 12:05:45.298 logback [Thread-53] INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+2019:03:28 12:06:17.076 logback [main] INFO  c.z.s.SmartbackgroundApplication - Starting SmartbackgroundApplication on zuoweixingdeMacBook-Pro.local with PID 89452 (/Users/zuoweixing/graduation/smartbackground/target/classes started by zuoweixing in /Users/zuoweixing/graduation/smartbackground)
+2019:03:28 12:06:17.079 logback [main] INFO  c.z.s.SmartbackgroundApplication - No active profile set, falling back to default profiles: default
+2019:03:28 12:06:18.112 logback [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2019:03:28 12:06:18.127 logback [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2019:03:28 12:06:18.140 logback [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2019:03:28 12:06:18.140 logback [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.14]
+2019:03:28 12:06:18.145 logback [main] INFO  o.a.c.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/zuoweixing/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+2019:03:28 12:06:18.285 logback [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019:03:28 12:06:18.287 logback [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1161 ms
+2019:03:28 12:06:18.366 logback [main] INFO  o.s.b.web.servlet.RegistrationBean - Filter characterEncodingFilter was not registered (possibly already registered?)
+2019:03:28 12:06:18.454 logback [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2019:03:28 12:06:18.987 logback [main] INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2019:03:28 12:06:19.582 logback [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019:03:28 12:06:19.837 logback [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2019:03:28 12:06:19.872 logback [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2019:03:28 12:06:19.875 logback [main] INFO  c.z.s.SmartbackgroundApplication - Started SmartbackgroundApplication in 23.203 seconds (JVM running for 28.95)
+2019:03:28 12:06:52.368 logback [Thread-49] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2019:03:28 12:06:52.377 logback [Thread-49] INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+2019-03-28 12:07:20.856 logback [main] INFO  c.z.s.SmartbackgroundApplication - Starting SmartbackgroundApplication on zuoweixingdeMacBook-Pro.local with PID 89468 (/Users/zuoweixing/graduation/smartbackground/target/classes started by zuoweixing in /Users/zuoweixing/graduation/smartbackground)
+2019-03-28 12:07:20.859 logback [main] INFO  c.z.s.SmartbackgroundApplication - No active profile set, falling back to default profiles: default
+2019-03-28 12:07:21.789 logback [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2019-03-28 12:07:21.798 logback [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2019-03-28 12:07:21.804 logback [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2019-03-28 12:07:21.805 logback [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.14]
+2019-03-28 12:07:21.810 logback [main] INFO  o.a.c.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/zuoweixing/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+2019-03-28 12:07:21.939 logback [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-03-28 12:07:21.940 logback [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1041 ms
+2019-03-28 12:07:21.994 logback [main] INFO  o.s.b.web.servlet.RegistrationBean - Filter characterEncodingFilter was not registered (possibly already registered?)
+2019-03-28 12:07:22.069 logback [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2019-03-28 12:07:22.583 logback [main] INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2019-03-28 12:07:22.992 logback [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-03-28 12:07:23.212 logback [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2019-03-28 12:07:23.247 logback [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2019-03-28 12:07:23.251 logback [main] INFO  c.z.s.SmartbackgroundApplication - Started SmartbackgroundApplication in 22.766 seconds (JVM running for 28.382)
+2019-03-28 12:10:36.247 logback [Thread-3] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2019-03-28 12:10:36.268 logback [Thread-3] INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+2019-03-28 16:14:15.582 logback [main] INFO  c.z.s.SmartbackgroundApplication - Starting SmartbackgroundApplication on zuoweixingdeMacBook-Pro.local with PID 4687 (/Users/zuoweixing/graduation/smartbackground/target/classes started by zuoweixing in /Users/zuoweixing/graduation/smartbackground)
+2019-03-28 16:14:15.585 logback [main] INFO  c.z.s.SmartbackgroundApplication - No active profile set, falling back to default profiles: default
+2019-03-28 16:14:16.989 logback [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2019-03-28 16:14:17.009 logback [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2019-03-28 16:14:17.019 logback [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2019-03-28 16:14:17.019 logback [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.14]
+2019-03-28 16:14:17.026 logback [main] INFO  o.a.c.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/zuoweixing/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+2019-03-28 16:14:17.172 logback [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-03-28 16:14:17.172 logback [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1539 ms
+2019-03-28 16:14:17.256 logback [main] INFO  o.s.b.web.servlet.RegistrationBean - Filter characterEncodingFilter was not registered (possibly already registered?)
+2019-03-28 16:14:17.356 logback [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2019-03-28 16:14:18.049 logback [main] INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2019-03-28 16:14:18.704 logback [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-03-28 16:14:19.030 logback [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2019-03-28 16:14:19.064 logback [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2019-03-28 16:14:19.068 logback [main] INFO  c.z.s.SmartbackgroundApplication - Started SmartbackgroundApplication in 24.097 seconds (JVM running for 29.747)
+2019-03-28 16:14:38.426 logback [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-03-28 16:14:38.427 logback [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2019-03-28 16:14:38.443 logback [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 16 ms
+2019-03-28 16:14:38.473 logback [http-nio-8080-exec-1] INFO  c.z.s.controller.TestController - 日志输出 info
+2019-03-28 16:14:38.473 logback [http-nio-8080-exec-1] WARN  c.z.s.controller.TestController - 日志输出 warn
+2019-03-28 16:14:38.473 logback [http-nio-8080-exec-1] ERROR c.z.s.controller.TestController - 日志输出 error
+2019-03-28 16:15:08.399 logback [Thread-51] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2019-03-28 16:15:08.412 logback [Thread-51] INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed

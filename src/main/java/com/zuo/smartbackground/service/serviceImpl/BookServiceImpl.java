@@ -1,33 +1,64 @@
 package com.zuo.smartbackground.service.serviceImpl;
 
 import com.zuo.smartbackground.dao.BookMapper;
+import com.zuo.smartbackground.dao.ScheduleMapper;
 import com.zuo.smartbackground.model.Book;
 import com.zuo.smartbackground.model.BookExample;
+import com.zuo.smartbackground.model.Schedule;
+import com.zuo.smartbackground.model.ScheduleExample;
 import com.zuo.smartbackground.service.BookService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.List;
 
 @Service
 public class BookServiceImpl implements BookService {
+    private Logger logger = LoggerFactory.getLogger(BookServiceImpl.class);
     @Autowired
     private BookMapper bookMapper;
+
+    @Autowired
+    private ScheduleMapper scheduleMapper;
+
     @Override
+    @Transactional(isolation = Isolation.READ_COMMITTED)
     public int createBook(Book book) {
-        return bookMapper.insertSelective(book);
+        int res = 0;
+        res = scheduleMapper.updateRemainder(book.getScheduleId());
+
+        if(res==1)
+        {
+            return bookMapper.insertSelective(book);
+        }else{
+            logger.warn("更新schedule的挂号数失败");
+            return 0;
+        }
+
     }
 
     @Override
+    @Transactional(isolation = Isolation.READ_COMMITTED)
     public int cancleBook(Book book) {
-        return bookMapper.updateByPrimaryKeySelective(book);
+        int res = 0;
+        res = scheduleMapper.updateUnRemainder(book.getScheduleId());
+
+        if(res==1)
+        {
+            return bookMapper.updateByPrimaryKeySelective(book);
+        }else{
+            logger.warn("更新schedule的挂号数失败");
+            return 0;
+        }
+
     }
 
-    @Override
-    public int updateBook(Book book) {
-        return bookMapper.updateByPrimaryKeySelective(book);
-    }
+
 
     @Override
     public List<Book> getAllValidBook() {

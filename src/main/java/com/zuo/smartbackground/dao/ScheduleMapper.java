@@ -95,4 +95,11 @@ public interface ScheduleMapper {
      * @mbggenerated
      */
     int updateByPrimaryKey(Schedule record);
+
+    //+1
+    int updateUnRemainder(Integer scheduleId);
+
+    //-1
+    int updateRemainder(Integer scheduleId);
+
 }

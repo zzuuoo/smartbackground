@@ -7,6 +7,8 @@ import com.zuo.smartbackground.model.MakeSchedule;
 import com.zuo.smartbackground.model.Schedule;
 import com.zuo.smartbackground.model.ScheduleExample;
 import com.zuo.smartbackground.service.ScheduleService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
@@ -16,6 +18,9 @@ import java.util.Date;
 import java.util.List;
 @Service
 public class ScheduleServiceImpl implements ScheduleService{
+
+    private Logger logger = LoggerFactory.getLogger(ScheduleServiceImpl.class);
+
     @Autowired
     private ScheduleMapper scheduleMapper;
     @Autowired
@@ -23,8 +28,65 @@ public class ScheduleServiceImpl implements ScheduleService{
     @Autowired
     private DoctorMapper doctorMapper;
     @Override
+    @Transactional(isolation = Isolation.READ_COMMITTED)
     public int arrangeSchedule(Schedule schedule) {
-        return scheduleMapper.insertSelective(schedule);
+
+        int x = -1;
+        if (schedule.getW()==0){
+            schedule.setW(1);
+            ScheduleExample scheduleExample = new ScheduleExample();
+            scheduleExample.createCriteria().andDoctorIdEqualTo(schedule.getDoctorId())
+                    .andWEqualTo(schedule.getW())
+                    .andWorkTimeStartEqualTo(schedule.getWorkTimeStart());
+            List<Schedule> schedules = scheduleMapper.selectByExample(scheduleExample);
+            if(schedules==null||schedules.size()==0){
+                logger.info("没有时间冲突、正在插入schedule");
+                x = x + scheduleMapper.insertSelective(schedule);
+            }else{
+                logger.info("有时间冲突");
+                for(Schedule s:schedules){
+                    logger.info("冲突时间："+s.getWorkTimeStart().toString());
+                }
+            }
+
+            if(x==0){
+                schedule.setW(2);
+                ScheduleExample scheduleExample1 = new ScheduleExample();
+                scheduleExample1.createCriteria().andDoctorIdEqualTo(schedule.getDoctorId())
+                        .andWEqualTo(schedule.getW())
+                        .andWorkTimeStartEqualTo(schedule.getWorkTimeStart());
+                List<Schedule> schedules1 = scheduleMapper.selectByExample(scheduleExample1);
+                if(schedules1==null||schedules1.size()==0){
+                    logger.info("没有时间冲突、正在插入schedule");
+                    x = x + scheduleMapper.insertSelective(schedule);
+                }else{
+                    logger.info("有时间冲突");
+                    for(Schedule s:schedules){
+                        logger.info("冲突时间："+s.getWorkTimeStart().toString());
+                    }
+                }
+
+            }
+        }else{
+            ScheduleExample scheduleExample = new ScheduleExample();
+            scheduleExample.createCriteria().andDoctorIdEqualTo(schedule.getDoctorId())
+                    .andWEqualTo(schedule.getW())
+                    .andWorkTimeStartEqualTo(schedule.getWorkTimeStart());
+            List<Schedule> schedules = scheduleMapper.selectByExample(scheduleExample);
+            if(schedules==null||schedules.size()==0){
+                logger.info("没有时间冲突、正在插入schedule");
+                return  scheduleMapper.insertSelective(schedule);
+            }else{
+                logger.info("有时间冲突");
+                for(Schedule s:schedules){
+                    logger.info("冲突时间："+s.getWorkTimeStart().toString());
+                }
+            }
+
+        }
+
+        return x;
+
     }
 
     @Override

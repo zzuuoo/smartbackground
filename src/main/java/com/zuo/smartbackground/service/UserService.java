@@ -2,6 +2,7 @@ package com.zuo.smartbackground.service;
 
 import com.zuo.smartbackground.model.*;
 
+import javax.print.Doc;
 import java.util.List;
 
 public interface UserService {
@@ -29,6 +30,8 @@ public interface UserService {
     int deleteDoctor(String account);
     int deletePatient(String account);
     int deleteAdmin(String account);
+
+    int addDoctor(User user, Doctor doctor);
 
 
 

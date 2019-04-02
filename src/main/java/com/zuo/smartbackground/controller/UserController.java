@@ -151,5 +151,23 @@ public class UserController {
         return userService.getUserByAccountAndStatus(account,status);
     }
 
+    @RequestMapping(value = "addDoctor",method = RequestMethod.POST)
+    public int addDoctor(DUser dUser){
+        System.out.println(dUser.toString());
+        User user = new User();
+        user.setUserStatus(2);
+        user.setAccount(dUser.getPhone());
+        user.setPassword(dUser.getPassword());
+        Doctor doctor = new Doctor();
+        doctor.setAccount(user.getAccount());
+        doctor.setHonour(dUser.getHonour());
+        doctor.setPhone(user.getAccount());
+        doctor.setSectionId(dUser.getSectionId());
+        doctor.setName(dUser.getName());
+        doctor.setIdNumber(dUser.getIdNumber());
+        doctor.setSex(dUser.getSex());
+        return userService.addDoctor(user,doctor);
+    }
+
 
 }

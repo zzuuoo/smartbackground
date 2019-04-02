@@ -226,4 +226,23 @@ public class UserServiceImpl implements UserService{
 
         return adminMapper.deleteByExample(adminExample);
     }
+
+    @Override
+    public int addDoctor(User user, Doctor doctor) {
+        //0 admin 1 patient 2 doctor
+        user.setUserStatus(2);
+        UserExample userExample = new UserExample();
+        userExample.createCriteria().andAccountEqualTo(user.getAccount())
+                .andUserStatusEqualTo(user.getUserStatus());
+        List<User> list = userMapper.selectByExample(userExample);
+        if(list!=null&&list.size()>0){
+            return -1;//已存在
+        }
+        int u = userMapper.insertSelective(user);
+        int s = 0;
+        if(u==1){
+            s = doctorMapper.insertSelective(doctor);
+        }
+        return s;
+    }
 }

@@ -198,10 +198,17 @@ public class UserServiceImpl implements UserService{
         {
             return 0;
         }
-        DoctorExample doctorExample = new DoctorExample();
-        doctorExample.createCriteria().andAccountEqualTo(account);
+        UserExample userExample = new UserExample();
+        userExample.createCriteria().andAccountEqualTo(account)
+                .andUserStatusEqualTo(2);
+        int k = userMapper.deleteByExample(userExample);
+        if(k==1){
+            DoctorExample doctorExample = new DoctorExample();
+            doctorExample.createCriteria().andAccountEqualTo(account);
 
-        return doctorMapper.deleteByExample(doctorExample);
+            return doctorMapper.deleteByExample(doctorExample);
+        }
+        return 0;
     }
 
     @Override
@@ -210,9 +217,17 @@ public class UserServiceImpl implements UserService{
         {
             return 0;
         }
-        PatientExample patientExample = new PatientExample();
-        patientExample.createCriteria().andAccountEqualTo(account);
-        return patientMapper.deleteByExample(patientExample);
+        UserExample userExample = new UserExample();
+        userExample.createCriteria().andAccountEqualTo(account)
+                .andUserStatusEqualTo(1);
+        int k = userMapper.deleteByExample(userExample);
+        if(k==1){
+            PatientExample patientExample = new PatientExample();
+            patientExample.createCriteria().andAccountEqualTo(account);
+            return patientMapper.deleteByExample(patientExample);
+        }
+        return 0;
+
     }
 
     @Override
@@ -221,10 +236,17 @@ public class UserServiceImpl implements UserService{
         {
             return 0;
         }
-        AdminExample adminExample = new AdminExample();
-        adminExample.createCriteria().andAccountEqualTo(account);
+        UserExample userExample = new UserExample();
+        userExample.createCriteria().andAccountEqualTo(account)
+                .andUserStatusEqualTo(0);
+        int k = userMapper.deleteByExample(userExample);
+        if(k==1){
+            AdminExample adminExample = new AdminExample();
+            adminExample.createCriteria().andAccountEqualTo(account);
 
-        return adminMapper.deleteByExample(adminExample);
+            return adminMapper.deleteByExample(adminExample);
+        }
+        return 0;
     }
 
     @Override
@@ -244,5 +266,39 @@ public class UserServiceImpl implements UserService{
             s = doctorMapper.insertSelective(doctor);
         }
         return s;
+    }
+    @Override
+    public int addPatient(User u,Patient p){
+        u.setUserStatus(1);
+        UserExample userExample = new UserExample();
+        userExample.createCriteria().andUserStatusEqualTo(u.getUserStatus())
+                .andAccountEqualTo(u.getAccount());
+        List<User> list = userMapper.selectByExample(userExample);
+        if(list!=null&&list.size()>0){
+            return -1;
+        }
+        int c = userMapper.insertSelective(u);
+        if(c==1){
+            return patientMapper.insertSelective(p);
+        }
+        return 0;
+
+    }
+
+    @Override
+    public int addAdmin(User user, Admin admin) {
+        user.setUserStatus(0);
+        UserExample userExample = new UserExample();
+        userExample.createCriteria().andUserStatusEqualTo(user.getUserStatus())
+                .andAccountEqualTo(user.getAccount());
+        List<User> list = userMapper.selectByExample(userExample);
+        if(list!=null&&list.size()>0){
+            return -1;
+        }
+        int c = userMapper.insertSelective(user);
+        if(c==1){
+            return adminMapper.insertSelective(admin);
+        }
+        return 0;
     }
 }

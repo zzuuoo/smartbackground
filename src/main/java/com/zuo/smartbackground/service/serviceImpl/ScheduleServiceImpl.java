@@ -161,4 +161,14 @@ public class ScheduleServiceImpl implements ScheduleService{
                 .andDoctorIdEqualTo(doctorID);
         return scheduleMapper.selectByExample(scheduleExample);
     }
+
+    @Override
+    public int deleteSchedule(int scheduleId) {
+        return scheduleMapper.deleteByPrimaryKey(scheduleId);
+    }
+
+    @Override
+    public int updateSchedule(Schedule schedule) {
+        return scheduleMapper.updateByPrimaryKeySelective(schedule);
+    }
 }

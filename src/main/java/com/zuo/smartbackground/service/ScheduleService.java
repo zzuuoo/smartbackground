@@ -20,4 +20,7 @@ public interface ScheduleService {
 
     List<Schedule> getValiScheduleByDoctorId(int doctorID);
 
+    int deleteSchedule(int scheduleId);
+    int updateSchedule(Schedule schedule);
+
 }

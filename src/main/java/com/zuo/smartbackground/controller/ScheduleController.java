@@ -98,5 +98,9 @@ public class ScheduleController {
         return scheduleService.getAllFromNowSchedule();
     }
 
+    @RequestMapping(value = "/deleteSchedule",method = RequestMethod.GET)
+    public int deleteSchedule(int scheduleId){
+        return scheduleService.deleteSchedule(scheduleId);
+    }
 
 }

@@ -32,6 +32,9 @@ public interface UserService {
     int deleteAdmin(String account);
 
     int addDoctor(User user, Doctor doctor);
+    int addPatient(User u,Patient p);
+    int addAdmin(User user,Admin admin);
+
 
 
 

@@ -35,32 +35,32 @@ public class UserController {
         return userService.getPatientByAccount(account);
     }
 
-    @RequestMapping(value = "/insertUser",method = RequestMethod.POST)
-    public int insertUser(User user)
-    {
-        return userService.insertUser(user);
-    }
+//    @RequestMapping(value = "/insertUser",method = RequestMethod.POST)
+//    public int insertUser(User user)
+//    {
+//        return userService.insertUser(user);
+//    }
 
 
-    @RequestMapping(value = "insertDoctor",method = RequestMethod.POST)
-    public int insertDoctor(Doctor doctor)
-    {
-        return userService.insertDoctor(doctor);
-    }
+//    @RequestMapping(value = "insertDoctor",method = RequestMethod.POST)
+//    public int insertDoctor(Doctor doctor)
+//    {
+//        return userService.insertDoctor(doctor);
+//    }
 
-    @RequestMapping(value = "insertPatient",method = RequestMethod.POST)
-    public int insertPatient(Patient patient)
-    {
+//    @RequestMapping(value = "insertPatient",method = RequestMethod.POST)
+//    public int insertPatient(Patient patient)
+//    {
+//
+//        return userService.insertPatient(patient);
+//    }
 
-        return userService.insertPatient(patient);
-    }
 
-
-    @RequestMapping(value = "insertAdmin",method = RequestMethod.POST)
-    public int insertAdmin(Admin admin)
-    {
-        return userService.insertAdmin(admin);
-    }
+//    @RequestMapping(value = "insertAdmin",method = RequestMethod.POST)
+//    public int insertAdmin(Admin admin)
+//    {
+//        return userService.insertAdmin(admin);
+//    }
 
     @RequestMapping(value = "deleteUser",method = RequestMethod.POST)
     public int deleteUser(User user)

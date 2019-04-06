@@ -141,7 +141,9 @@ public class UserController {
         DoctorExample doctorExample = new DoctorExample();
         doctorExample.createCriteria().andSectionIdEqualTo(sectionId);
         List<Doctor> doctors = userService.selectDoctorByExample(doctorExample);
-        System.out.println(doctors.get(0).getHonour());
+        if(doctors!=null&&doctors.size()>0){
+            System.out.println(doctors.get(0).getHonour());
+        }
         return doctors;
     }
 

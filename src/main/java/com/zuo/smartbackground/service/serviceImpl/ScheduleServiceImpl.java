@@ -3,6 +3,7 @@ package com.zuo.smartbackground.service.serviceImpl;
 import com.zuo.smartbackground.dao.BookMapper;
 import com.zuo.smartbackground.dao.DoctorMapper;
 import com.zuo.smartbackground.dao.ScheduleMapper;
+import com.zuo.smartbackground.model.Book;
 import com.zuo.smartbackground.model.MakeSchedule;
 import com.zuo.smartbackground.model.Schedule;
 import com.zuo.smartbackground.model.ScheduleExample;
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 @Service
@@ -170,5 +172,19 @@ public class ScheduleServiceImpl implements ScheduleService{
     @Override
     public int updateSchedule(Schedule schedule) {
         return scheduleMapper.updateByPrimaryKeySelective(schedule);
+    }
+
+    @Override
+    public List<Schedule> getScheduleByBookList(List<Book> books) {
+        List<Integer> scids = new ArrayList<>();
+        if(books==null||books.size()<1){
+            return null;
+        }
+        for(Book book:books){
+            scids.add(book.getScheduleId());
+        }
+        ScheduleExample scheduleExample = new ScheduleExample();
+        scheduleExample.createCriteria().andScheduleIdIn(scids);
+        return scheduleMapper.selectByExample(scheduleExample);
     }
 }

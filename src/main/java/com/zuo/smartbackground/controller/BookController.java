@@ -1,6 +1,8 @@
 package com.zuo.smartbackground.controller;
 
 import com.zuo.smartbackground.model.Book;
+import com.zuo.smartbackground.model.BookDocSche;
+import com.zuo.smartbackground.model.CBook;
 import com.zuo.smartbackground.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,8 +21,9 @@ public class BookController {
 
 
     @RequestMapping(value = "createBook",method = RequestMethod.POST)
-    public int createBook(Book book){
-        return bookService.createBook(book);
+    public int createBook(CBook cbook){
+
+        return bookService.createBook(cbook);
     }
 
 
@@ -59,6 +62,15 @@ public class BookController {
     @RequestMapping(value = "getBookByPatientId",method = RequestMethod.GET)
     public List<Book> getBookByPatientId(Integer patientId){
         return bookService.getBookByPatientId(patientId);
+    }
+    @RequestMapping(value = "getBookByAccount",method = RequestMethod.GET)
+    public List<Book> getBookByAccount(String account){
+        return bookService.getBookByAccount(account);
+    }
+
+    @RequestMapping(value = "showBookByAccount",method = RequestMethod.GET)
+    public List<BookDocSche> showBookByAccount(String account){
+        return bookService.showBook(account);
     }
 
 

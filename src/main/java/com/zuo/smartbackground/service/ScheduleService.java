@@ -1,5 +1,6 @@
 package com.zuo.smartbackground.service;
 
+import com.zuo.smartbackground.model.Book;
 import com.zuo.smartbackground.model.MakeSchedule;
 import com.zuo.smartbackground.model.Schedule;
 
@@ -22,5 +23,7 @@ public interface ScheduleService {
 
     int deleteSchedule(int scheduleId);
     int updateSchedule(Schedule schedule);
+
+    List<Schedule> getScheduleByBookList(List<Book> books);
 
 }

@@ -2,6 +2,7 @@ package com.zuo.smartbackground.controller;
 
 import com.zuo.smartbackground.model.Book;
 import com.zuo.smartbackground.model.BookDocSche;
+import com.zuo.smartbackground.model.BookPatientSche;
 import com.zuo.smartbackground.model.CBook;
 import com.zuo.smartbackground.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -71,6 +72,11 @@ public class BookController {
     @RequestMapping(value = "showBookByAccount",method = RequestMethod.GET)
     public List<BookDocSche> showBookByAccount(String account){
         return bookService.showBook(account);
+    }
+
+    @RequestMapping(value = "showBookforDoctor",method = RequestMethod.GET)
+    public List<BookPatientSche> showBookforDoctor(Integer scheduleId){
+        return bookService.showBookForDoctor(scheduleId);
     }
 
 

@@ -174,4 +174,26 @@ public class BookServiceImpl implements BookService {
         }
         return bookDocSches;
     }
+
+    @Override
+    public List<BookPatientSche> showBookForDoctor(Integer scheduleId) {
+        BookExample bookExample = new BookExample();
+        bookExample.createCriteria().andScheduleIdEqualTo(scheduleId)
+        .andIsCancleEqualTo(false).andIsAvaliablityEqualTo(true);
+        List<Book> books = bookMapper.selectByExample(bookExample);
+        if(books==null||books.size()<1){
+            return null;
+        }
+        Schedule schedule = scheduleMapper.selectByPrimaryKey(scheduleId);
+        List<BookPatientSche> list = new ArrayList<>();
+        for(Book book:books){
+            Patient patient = patientMapper.selectByPrimaryKey(book.getPatientId());
+            BookPatientSche bookPatientSche = new BookPatientSche();
+            bookPatientSche.setBook(book);
+            bookPatientSche.setPatient(patient);
+            bookPatientSche.setSchedule(schedule);
+            list.add(bookPatientSche);
+        }
+        return list;
+    }
 }

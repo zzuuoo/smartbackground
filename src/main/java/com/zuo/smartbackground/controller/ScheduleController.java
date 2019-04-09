@@ -37,17 +37,6 @@ public class ScheduleController {
     @RequestMapping(value = "/getScheduleBySectionId",method = RequestMethod.GET)
     public List<Schedule> getScheduleBySectionId(int sectionId){
         List<Schedule> schedules = scheduleService.getScheduleBySessionID(sectionId);
-//        List<ScheduleT> scheduleTS = new ArrayList<>();
-//        for (Schedule s:schedules){
-//            ScheduleT scheduleT = new ScheduleT();
-//            scheduleT.setDoctorId(s.getDoctorId());
-//            scheduleT.setIsCancle(s.getIsCancle());
-//            scheduleT.setRemainder(s.getRemainder());
-//            scheduleT.setW(s.getW());
-//            scheduleT.setWorkTimeStart(s.getWorkTimeStart().getTime());
-//            scheduleT.setScheduleId(s.getScheduleId());
-//            scheduleTS.add(scheduleT);
-//        }
         return schedules;
     }
 
@@ -101,6 +90,10 @@ public class ScheduleController {
     @RequestMapping(value = "/deleteSchedule",method = RequestMethod.GET)
     public int deleteSchedule(int scheduleId){
         return scheduleService.deleteSchedule(scheduleId);
+    }
+    @RequestMapping(value ="/getScheduleByDoctorAccount",method = RequestMethod.GET)
+    public List<Schedule> getScheduleByDoctorAccount(String account){
+        return scheduleService.getScheduleByDoctorAccount(account);
     }
 
 }

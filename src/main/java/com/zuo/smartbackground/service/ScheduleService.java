@@ -26,4 +26,6 @@ public interface ScheduleService {
 
     List<Schedule> getScheduleByBookList(List<Book> books);
 
+    List<Schedule> getScheduleByDoctorAccount(String account);
+
 }

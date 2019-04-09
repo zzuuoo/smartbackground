@@ -3,10 +3,7 @@ package com.zuo.smartbackground.service.serviceImpl;
 import com.zuo.smartbackground.dao.BookMapper;
 import com.zuo.smartbackground.dao.DoctorMapper;
 import com.zuo.smartbackground.dao.ScheduleMapper;
-import com.zuo.smartbackground.model.Book;
-import com.zuo.smartbackground.model.MakeSchedule;
-import com.zuo.smartbackground.model.Schedule;
-import com.zuo.smartbackground.model.ScheduleExample;
+import com.zuo.smartbackground.model.*;
 import com.zuo.smartbackground.service.ScheduleService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -185,6 +182,19 @@ public class ScheduleServiceImpl implements ScheduleService{
         }
         ScheduleExample scheduleExample = new ScheduleExample();
         scheduleExample.createCriteria().andScheduleIdIn(scids);
+        return scheduleMapper.selectByExample(scheduleExample);
+    }
+
+    @Override
+    public List<Schedule> getScheduleByDoctorAccount(String account) {
+        DoctorExample doctorExample = new DoctorExample();
+        doctorExample.createCriteria().andAccountEqualTo(account);
+        List<Doctor> doctors  = doctorMapper.selectByExample(doctorExample);
+        if(doctors==null||doctors.size()<1){
+            return null;
+        }
+        ScheduleExample scheduleExample = new ScheduleExample();
+        scheduleExample.createCriteria().andDoctorIdEqualTo(doctors.get(0).getDoctorId());
         return scheduleMapper.selectByExample(scheduleExample);
     }
 }

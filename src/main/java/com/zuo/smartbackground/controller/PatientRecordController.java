@@ -39,4 +39,14 @@ public class PatientRecordController {
         
         return patientRecordService.createPatientRecord(patientRecord);
     }
+
+    @RequestMapping(value = "editPatientRecord",method = RequestMethod.POST)
+    public PatientRecord editPatientRecord(PatientRecordT patientRecordT){
+        PatientRecord patientRecord = new PatientRecord();
+        patientRecord.setAdmissionTime(new Date(patientRecordT.getAdmissionTime()));
+        patientRecord.setDoctorId(patientRecordT.getDoctorId());
+        patientRecord.setPatientId(patientRecordT.getPatientId());
+
+        return patientRecordService.getPatientRecordBySellf(patientRecord);
+    }
 }

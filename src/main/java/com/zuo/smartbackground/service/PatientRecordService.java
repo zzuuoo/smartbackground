@@ -12,4 +12,6 @@ public interface PatientRecordService {
     int deletePatientRecord(long patientRecordId);
     int updatePatientRecord(PatientRecord patientRecord);
 
+    PatientRecord getPatientRecordBySellf(PatientRecord patientRecord);
+
 }

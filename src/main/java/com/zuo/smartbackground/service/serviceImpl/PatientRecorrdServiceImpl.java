@@ -48,6 +48,11 @@ public class PatientRecorrdServiceImpl implements PatientRecordService {
 
     @Override
     public int createPatientRecord(PatientRecord patientRecord) {
+        PatientRecord patientRecord1 = getPatientRecordBySellf(patientRecord);
+        if(patientRecord1!=null){
+            patientRecord.setPatientRecordId(patientRecord1.getPatientRecordId());
+            return patientRecordMapper.updateByPrimaryKeySelective(patientRecord);
+        }
         return patientRecordMapper.insertSelective(patientRecord);
     }
 
@@ -59,5 +64,17 @@ public class PatientRecorrdServiceImpl implements PatientRecordService {
     @Override
     public int updatePatientRecord(PatientRecord patientRecord) {
         return patientRecordMapper.updateByPrimaryKeySelective(patientRecord);
+    }
+
+    @Override
+    public PatientRecord getPatientRecordBySellf(PatientRecord patientRecord) {
+        PatientRecordExample patientRecordExample = new PatientRecordExample();
+        patientRecordExample.createCriteria().andPatientIdEqualTo(patientRecord.getPatientId())
+                .andDoctorIdEqualTo(patientRecord.getDoctorId()).andAdmissionTimeEqualTo(patientRecord.getAdmissionTime());
+        List<PatientRecord> patientRecords = patientRecordMapper.selectByExample(patientRecordExample);
+        if(patientRecords!=null&&patientRecords.size()>0){
+            return patientRecords.get(0);
+        }
+        return null;
     }
 }

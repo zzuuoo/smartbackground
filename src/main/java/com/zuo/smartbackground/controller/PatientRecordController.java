@@ -49,4 +49,12 @@ public class PatientRecordController {
 
         return patientRecordService.getPatientRecordBySellf(patientRecord);
     }
+
+    @RequestMapping(value = "getPatientRecordByDoctorAccount",method = RequestMethod.POST)
+    public List<PatientRecord> getPatientRecordByDoctorAccount(String account)
+    {
+        List<PatientRecord> list = patientRecordService.getPatientRecordByDoctorAccount(account);
+
+        return list;
+    }
 }

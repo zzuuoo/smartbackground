@@ -1,5 +1,7 @@
 package com.zuo.smartbackground.controller;
 
+import com.zuo.smartbackground.model.BookPatientSche;
+import com.zuo.smartbackground.model.PPatientRecord;
 import com.zuo.smartbackground.model.PatientRecord;
 import com.zuo.smartbackground.model.PatientRecordT;
 import com.zuo.smartbackground.service.PatientRecordService;
@@ -56,5 +58,9 @@ public class PatientRecordController {
         List<PatientRecord> list = patientRecordService.getPatientRecordByDoctorAccount(account);
 
         return list;
+    }
+    @RequestMapping(value = "getBookPatientByDoctorAccount",method = RequestMethod.POST)
+    public List<PPatientRecord> getBookPatientByDoctorAccount(String account){
+        return patientRecordService.getPatientPatientRecordByDoctorAccount(account);
     }
 }

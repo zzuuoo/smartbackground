@@ -1,5 +1,7 @@
 package com.zuo.smartbackground.service;
 
+import com.zuo.smartbackground.model.BookPatientSche;
+import com.zuo.smartbackground.model.PPatientRecord;
 import com.zuo.smartbackground.model.PatientRecord;
 
 import java.util.List;
@@ -13,5 +15,7 @@ public interface PatientRecordService {
     int updatePatientRecord(PatientRecord patientRecord);
 
     PatientRecord getPatientRecordBySellf(PatientRecord patientRecord);
+
+    List<PPatientRecord> getPatientPatientRecordByDoctorAccount(String account);
 
 }

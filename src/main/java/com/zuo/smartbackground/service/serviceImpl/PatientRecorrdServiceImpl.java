@@ -2,15 +2,14 @@ package com.zuo.smartbackground.service.serviceImpl;
 
 import com.zuo.smartbackground.dao.PatientMapper;
 import com.zuo.smartbackground.dao.PatientRecordMapper;
-import com.zuo.smartbackground.model.Doctor;
-import com.zuo.smartbackground.model.Patient;
-import com.zuo.smartbackground.model.PatientRecord;
-import com.zuo.smartbackground.model.PatientRecordExample;
+import com.zuo.smartbackground.model.*;
 import com.zuo.smartbackground.service.PatientRecordService;
 import com.zuo.smartbackground.service.UserService;
+import io.swagger.models.auth.In;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 @Service
 public class PatientRecorrdServiceImpl implements PatientRecordService {
@@ -77,4 +76,38 @@ public class PatientRecorrdServiceImpl implements PatientRecordService {
         }
         return null;
     }
+
+    @Override
+    public List<PPatientRecord> getPatientPatientRecordByDoctorAccount(String account) {
+        Doctor doctor = userService.getDoctorByAccount(account);
+        if(doctor==null||doctor.getDoctorId()==null)
+        {
+            return null;
+        }
+        PatientRecordExample patientRecordExample = new PatientRecordExample();
+        patientRecordExample.createCriteria().andDoctorIdEqualTo(doctor.getDoctorId());
+        List<PatientRecord> patientRecords = patientRecordMapper.selectByExample(patientRecordExample);
+        List<Integer> pid = new ArrayList<>();
+        for(PatientRecord p :patientRecords){
+            pid.add(p.getPatientId());
+        }
+        PatientExample patientExample = new PatientExample();
+        patientExample.createCriteria().andPatientIdIn(pid);
+        List<Patient> patients = patientMapper.selectByExample(patientExample);
+
+        List<PPatientRecord> list = new ArrayList<>();
+        for(PatientRecord pr :patientRecords){
+            for(Patient p:patients){
+                if(pr.getPatientId()==p.getPatientId()){
+                    PPatientRecord pPatientRecord = new PPatientRecord();
+                    pPatientRecord.setPatient(p);
+                    pPatientRecord.setPatientRecord(pr);
+                    list.add(pPatientRecord);
+                    break;
+                }
+            }
+        }
+        return list;
+    }
+
 }

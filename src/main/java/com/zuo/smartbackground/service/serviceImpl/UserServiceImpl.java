@@ -148,6 +148,9 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public int updateDoctor(Doctor doctor) {
+        if(doctor.getDoctorId()!=null){
+            return  doctorMapper.updateByPrimaryKeySelective(doctor);
+        }
         if(doctor==null||doctor.getAccount()==null)
         {
             return 0;
@@ -159,6 +162,9 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public int updatePatient(Patient patient) {
+        if(patient.getPatientId()!=null){
+            return patientMapper.updateByPrimaryKeySelective(patient);
+        }
         if(patient==null||patient.getAccount()==null)
         {
             return 0;
@@ -170,6 +176,9 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public int updateAdmin(Admin admin) {
+        if(admin.getAdminId()!=null){
+            return adminMapper.updateByPrimaryKeySelective(admin);
+        }
         if(admin==null||admin.getAccount()==null)
         {
             return 0;

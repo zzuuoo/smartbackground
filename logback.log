@@ -1,323 +1,65 @@
-2019-04-14 09:55:50.626 logback [http-nio-8080-exec-7] INFO  c.z.s.controller.LoginController - 收到第15次登录请求   18829071821登录成功 status:1
-2019-04-14 09:56:10.172 logback [http-nio-8080-exec-9] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.jdbc.BadSqlGrammarException: 
-### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and work_time_start > '2019-04-14' )' at line 16
-### The error may exist in file [E:\ForGraduate\smartbackground\target\classes\mapper\ScheduleMapper.xml]
-### The error may involve com.zuo.smartbackground.dao.ScheduleMapper.selectByExample-Inline
-### The error occurred while setting parameters
-### SQL: select                      schedule_id, doctor_id, w, remainder, work_time_start, is_cancle         from schedule                         WHERE (  doctor_id in                                                                                   and work_time_start > ? )
-### Cause: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and work_time_start > '2019-04-14' )' at line 16
-; bad SQL grammar []; nested exception is java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and work_time_start > '2019-04-14' )' at line 16] with root cause
-java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and work_time_start > '2019-04-14' )' at line 16
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:974)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:391)
-	at com.alibaba.druid.filter.FilterChainImpl.preparedStatement_execute(FilterChainImpl.java:3051)
-	at com.alibaba.druid.filter.FilterEventAdapter.preparedStatement_execute(FilterEventAdapter.java:440)
-	at com.alibaba.druid.filter.FilterChainImpl.preparedStatement_execute(FilterChainImpl.java:3049)
-	at com.alibaba.druid.proxy.jdbc.PreparedStatementProxyImpl.execute(PreparedStatementProxyImpl.java:167)
-	at com.alibaba.druid.pool.DruidPooledPreparedStatement.execute(DruidPooledPreparedStatement.java:498)
-	at org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:64)
-	at org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:79)
-	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:63)
-	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:324)
-	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156)
-	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:109)
-	at com.github.pagehelper.PageInterceptor.intercept(PageInterceptor.java:143)
-	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:61)
-	at com.sun.proxy.$Proxy76.query(Unknown Source)
-	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:148)
-	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:141)
-	at sun.reflect.GeneratedMethodAccessor65.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:433)
-	at com.sun.proxy.$Proxy55.selectList(Unknown Source)
-	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:230)
-	at org.apache.ibatis.binding.MapperMethod.executeForMany(MapperMethod.java:144)
-	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:77)
-	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:58)
-	at com.sun.proxy.$Proxy59.selectByExample(Unknown Source)
-	at com.zuo.smartbackground.service.serviceImpl.ScheduleServiceImpl.getScheduleBySessionID(ScheduleServiceImpl.java:140)
-	at com.zuo.smartbackground.service.serviceImpl.ScheduleServiceImpl$$FastClassBySpringCGLIB$$6442e98e.invoke(<generated>)
-	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
-	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:684)
-	at com.zuo.smartbackground.service.serviceImpl.ScheduleServiceImpl$$EnhancerBySpringCGLIB$$6285aae3.getScheduleBySessionID(<generated>)
-	at com.zuo.smartbackground.controller.ScheduleController.getScheduleBySectionId(ScheduleController.java:39)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:189)
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:800)
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1038)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:897)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:123)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1417)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.lang.Thread.run(Thread.java:748)
-2019-04-14 09:56:10.184 logback [http-nio-8080-exec-9] ERROR o.a.c.c.C.[Tomcat].[localhost] - Exception Processing ErrorPage[errorCode=0, location=/error]
-java.lang.NoSuchMethodError: javax.servlet.http.HttpServletRequest.getHttpServletMapping()Ljavax/servlet/http/HttpServletMapping;
-	at org.apache.catalina.core.ApplicationHttpRequest.setRequest(ApplicationHttpRequest.java:690)
-	at org.apache.catalina.core.ApplicationHttpRequest.<init>(ApplicationHttpRequest.java:114)
-	at org.apache.catalina.core.ApplicationDispatcher.wrapRequest(ApplicationDispatcher.java:917)
-	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:358)
-	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
-	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:394)
-	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:253)
-	at org.apache.catalina.core.StandardHostValve.throwable(StandardHostValve.java:348)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:173)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1417)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.lang.Thread.run(Thread.java:748)
-2019-04-14 10:02:41.301 logback [http-nio-8080-exec-10] INFO  c.z.s.controller.LoginController - 收到第16次登录请求   13542533427登录成功 status:0
-2019-04-14 10:03:37.429 logback [http-nio-8080-exec-6] INFO  c.z.s.s.s.ScheduleServiceImpl - 没有时间冲突、正在插入schedule
-2019-04-14 10:03:44.978 logback [http-nio-8080-exec-9] INFO  c.z.s.controller.LoginController - 收到第17次登录请求   13542533427登录成功 status:0
-2019-04-14 10:03:55.897 logback [http-nio-8080-exec-3] INFO  c.z.s.controller.LoginController - 收到第18次登录请求   18829071821登录成功 status:1
-2019-04-14 10:04:33.352 logback [http-nio-8080-exec-1] INFO  c.z.s.controller.LoginController - 收到第19次登录请求   18829071888登录成功 status:2
-2019-04-14 14:24:20.524 logback [http-nio-8080-exec-3] INFO  c.z.s.controller.LoginController - 收到20次登录请求，但是失败
-2019-04-14 14:24:25.531 logback [http-nio-8080-exec-4] INFO  c.z.s.controller.LoginController - 收到第21次登录请求   18829071888登录成功 status:2
-2019-04-14 14:26:35.057 logback [http-nio-8080-exec-9] INFO  c.z.s.controller.LoginController - 收到第22次登录请求   17868814537登录成功 status:2
-2019-04-14 14:30:34.874 logback [http-nio-8080-exec-4] INFO  c.z.s.controller.LoginController - 收到第23次登录请求   17868814537登录成功 status:2
-2019-04-14 14:36:32.241 logback [http-nio-8080-exec-1] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.DataIntegrityViolationException: 
-### Error updating database.  Cause: com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Data too long for column 'now_history' at row 1
-### The error may exist in file [E:\ForGraduate\smartbackground\target\classes\mapper\PatientRecordMapper.xml]
-### The error may involve com.zuo.smartbackground.dao.PatientRecordMapper.updateByPrimaryKeySelective-Inline
-### The error occurred while setting parameters
-### SQL: update patient_record      SET patient_id = ?,                       doctor_id = ?,                       admission_time = ?,                       chief = ?,                       now_history = ?,                                            physical_examination = ?,                       therapeutic_examination = ?,                       diagnosis = ?      where patient_record_id = ?
-### Cause: com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Data too long for column 'now_history' at row 1
-; Data truncation: Data too long for column 'now_history' at row 1; nested exception is com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Data too long for column 'now_history' at row 1] with root cause
-com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Data too long for column 'now_history' at row 1
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:104)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:974)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:391)
-	at com.alibaba.druid.filter.FilterChainImpl.preparedStatement_execute(FilterChainImpl.java:3051)
-	at com.alibaba.druid.filter.FilterEventAdapter.preparedStatement_execute(FilterEventAdapter.java:440)
-	at com.alibaba.druid.filter.FilterChainImpl.preparedStatement_execute(FilterChainImpl.java:3049)
-	at com.alibaba.druid.proxy.jdbc.PreparedStatementProxyImpl.execute(PreparedStatementProxyImpl.java:167)
-	at com.alibaba.druid.pool.DruidPooledPreparedStatement.execute(DruidPooledPreparedStatement.java:498)
-	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:47)
-	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:74)
-	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50)
-	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
-	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:76)
-	at sun.reflect.GeneratedMethodAccessor208.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:63)
-	at com.sun.proxy.$Proxy76.update(Unknown Source)
-	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:198)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:433)
-	at com.sun.proxy.$Proxy55.update(Unknown Source)
-	at org.mybatis.spring.SqlSessionTemplate.update(SqlSessionTemplate.java:294)
-	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:64)
-	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:58)
-	at com.sun.proxy.$Proxy65.updateByPrimaryKeySelective(Unknown Source)
-	at com.zuo.smartbackground.service.serviceImpl.PatientRecorrdServiceImpl.createPatientRecord(PatientRecorrdServiceImpl.java:54)
-	at com.zuo.smartbackground.controller.PatientRecordController.insertPatientRecord(PatientRecordController.java:40)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:189)
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:800)
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1038)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:908)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:661)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:123)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1417)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.lang.Thread.run(Thread.java:748)
-2019-04-14 14:36:32.244 logback [http-nio-8080-exec-1] ERROR o.a.c.c.C.[Tomcat].[localhost] - Exception Processing ErrorPage[errorCode=0, location=/error]
-java.lang.NoSuchMethodError: javax.servlet.http.HttpServletRequest.getHttpServletMapping()Ljavax/servlet/http/HttpServletMapping;
-	at org.apache.catalina.core.ApplicationHttpRequest.setRequest(ApplicationHttpRequest.java:690)
-	at org.apache.catalina.core.ApplicationHttpRequest.<init>(ApplicationHttpRequest.java:114)
-	at org.apache.catalina.core.ApplicationDispatcher.wrapRequest(ApplicationDispatcher.java:917)
-	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:358)
-	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
-	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:394)
-	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:253)
-	at org.apache.catalina.core.StandardHostValve.throwable(StandardHostValve.java:348)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:173)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1417)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.lang.Thread.run(Thread.java:748)
-2019-04-14 14:38:22.212 logback [http-nio-8080-exec-5] INFO  c.z.s.controller.LoginController - 收到第24次登录请求   17868814537登录成功 status:2
-2019-04-14 14:58:48.544 logback [main] INFO  c.z.s.SmartbackgroundApplication - Starting SmartbackgroundApplication on DESKTOP-PGD1S01 with PID 3244 (E:\ForGraduate\smartbackground\target\classes started by SHEEO in E:\ForGraduate\smartbackground)
-2019-04-14 14:58:48.546 logback [main] INFO  c.z.s.SmartbackgroundApplication - No active profile set, falling back to default profiles: default
-2019-04-14 14:58:50.095 logback [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
-2019-04-14 14:58:50.108 logback [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
-2019-04-14 14:58:50.116 logback [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2019-04-14 14:58:50.117 logback [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.14]
-2019-04-14 14:58:50.123 logback [main] INFO  o.a.c.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [E:\java\jdk1.8.0_131\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;D:\install\product\11.1.0\db_1\bin;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;E:\java\jdk1.8.0_131\bin;E:\java\jdk1.8.0_131\bin;E:\java\jdk1.8.0_131\jre\bin;E:\Android\sdk2\platform-tools;D:\mysql-5.7.19-winx64\bin;C:\MinGW\bin;C:\Program Files\MySQL\MySQL Utilities 1.6\;D:\apache-maven-3.5.2-bin\apache-maven-3.5.2\bin;D:\install\bin;D:\go\bin;D:\安装\Git\bin;C:\Users\SHEEO\AppData\Local\Programs\Python\Python36-32\Scripts\;C:\Users\SHEEO\AppData\Local\Programs\Python\Python36-32\;C:\Users\SHEEO\AppData\Local\Microsoft\WindowsApps;E:\Android\sdk2\platform-tools;D:\Tomcat\Tomcat9.0\bin;C:\MinGW\bin;E:\Go_WorkSpace\bin;D:\go\bin;D:\安装\Git\bin;C:\Users\SHEEO\AppData\Local\BypassRuntm;.]
-2019-04-14 14:58:50.214 logback [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2019-04-14 14:58:50.214 logback [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1624 ms
-2019-04-14 14:58:50.254 logback [main] INFO  o.s.b.web.servlet.RegistrationBean - Filter characterEncodingFilter was not registered (possibly already registered?)
-2019-04-14 14:58:50.313 logback [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
-2019-04-14 14:58:50.679 logback [main] INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
-2019-04-14 14:58:51.207 logback [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
-2019-04-14 14:58:51.491 logback [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
-2019-04-14 14:58:51.520 logback [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
-2019-04-14 14:58:51.524 logback [main] INFO  c.z.s.SmartbackgroundApplication - Started SmartbackgroundApplication in 3.543 seconds (JVM running for 5.52)
-2019-04-14 15:11:54.746 logback [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2019-04-14 15:11:54.747 logback [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2019-04-14 15:11:54.756 logback [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 8 ms
-2019-04-14 15:11:54.962 logback [http-nio-8080-exec-2] INFO  c.z.s.controller.LoginController - 收到第1次登录请求   17868814537登录成功 status:2
-2019-04-14 15:11:56.588 logback [http-nio-8080-exec-5] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' not supported]
-2019-04-14 15:11:56.599 logback [http-nio-8080-exec-5] ERROR o.a.c.c.C.[Tomcat].[localhost] - Exception Processing ErrorPage[errorCode=0, location=/error]
-java.lang.NoSuchMethodError: javax.servlet.http.HttpServletRequest.getHttpServletMapping()Ljavax/servlet/http/HttpServletMapping;
-	at org.apache.catalina.core.ApplicationHttpRequest.setRequest(ApplicationHttpRequest.java:690)
-	at org.apache.catalina.core.ApplicationHttpRequest.<init>(ApplicationHttpRequest.java:114)
-	at org.apache.catalina.core.ApplicationDispatcher.wrapRequest(ApplicationDispatcher.java:917)
-	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:358)
-	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
-	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:394)
-	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:253)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:175)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1417)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.lang.Thread.run(Thread.java:748)
-2019-04-14 15:12:42.123 logback [main] INFO  c.z.s.SmartbackgroundApplication - Starting SmartbackgroundApplication on DESKTOP-PGD1S01 with PID 5512 (E:\ForGraduate\smartbackground\target\classes started by SHEEO in E:\ForGraduate\smartbackground)
-2019-04-14 15:12:42.127 logback [main] INFO  c.z.s.SmartbackgroundApplication - No active profile set, falling back to default profiles: default
-2019-04-14 15:12:43.703 logback [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
-2019-04-14 15:12:43.716 logback [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
-2019-04-14 15:12:43.724 logback [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2019-04-14 15:12:43.724 logback [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.14]
-2019-04-14 15:12:43.730 logback [main] INFO  o.a.c.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [E:\java\jdk1.8.0_131\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;D:\install\product\11.1.0\db_1\bin;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;E:\java\jdk1.8.0_131\bin;E:\java\jdk1.8.0_131\bin;E:\java\jdk1.8.0_131\jre\bin;E:\Android\sdk2\platform-tools;D:\mysql-5.7.19-winx64\bin;C:\MinGW\bin;C:\Program Files\MySQL\MySQL Utilities 1.6\;D:\apache-maven-3.5.2-bin\apache-maven-3.5.2\bin;D:\install\bin;D:\go\bin;D:\安装\Git\bin;C:\Users\SHEEO\AppData\Local\Programs\Python\Python36-32\Scripts\;C:\Users\SHEEO\AppData\Local\Programs\Python\Python36-32\;C:\Users\SHEEO\AppData\Local\Microsoft\WindowsApps;E:\Android\sdk2\platform-tools;D:\Tomcat\Tomcat9.0\bin;C:\MinGW\bin;E:\Go_WorkSpace\bin;D:\go\bin;D:\安装\Git\bin;C:\Users\SHEEO\AppData\Local\BypassRuntm;.]
-2019-04-14 15:12:43.848 logback [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2019-04-14 15:12:43.848 logback [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1581 ms
-2019-04-14 15:12:43.906 logback [main] INFO  o.s.b.web.servlet.RegistrationBean - Filter characterEncodingFilter was not registered (possibly already registered?)
-2019-04-14 15:12:43.974 logback [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
-2019-04-14 15:12:44.345 logback [main] INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
-2019-04-14 15:12:44.800 logback [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
-2019-04-14 15:12:45.064 logback [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
-2019-04-14 15:12:45.086 logback [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
-2019-04-14 15:12:45.089 logback [main] INFO  c.z.s.SmartbackgroundApplication - Started SmartbackgroundApplication in 3.839 seconds (JVM running for 4.785)
-2019-04-14 15:13:41.114 logback [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2019-04-14 15:13:41.115 logback [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2019-04-14 15:13:41.123 logback [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 8 ms
-2019-04-14 15:13:41.302 logback [http-nio-8080-exec-1] INFO  c.z.s.controller.LoginController - 收到第1次登录请求   17868814537登录成功 status:2
-2019-04-14 15:13:56.684 logback [http-nio-8080-exec-5] INFO  c.z.s.controller.LoginController - 收到第2次登录请求   18829071821登录成功 status:1
-2019-04-14 15:16:13.364 logback [http-nio-8080-exec-10] INFO  c.z.s.controller.LoginController - 收到第3次登录请求   18829071821登录成功 status:1
-2019-04-14 15:18:55.051 logback [http-nio-8080-exec-1] INFO  c.z.s.controller.LoginController - 收到第4次登录请求   18829071888登录成功 status:2
+2019-04-18 00:00:47.549 logback [http-nio-8080-exec-3] INFO  c.z.s.controller.LoginController - 收到第11次登录请求   17868814537登录成功 status:2
+2019-04-18 00:04:20.489 logback [main] INFO  c.z.s.SmartbackgroundApplication - Starting SmartbackgroundApplication on DESKTOP-PGD1S01 with PID 10640 (E:\ForGraduate\smartbackground\target\classes started by SHEEO in E:\ForGraduate\smartbackground)
+2019-04-18 00:04:20.494 logback [main] INFO  c.z.s.SmartbackgroundApplication - No active profile set, falling back to default profiles: default
+2019-04-18 00:04:24.148 logback [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2019-04-18 00:04:24.173 logback [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2019-04-18 00:04:24.185 logback [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2019-04-18 00:04:24.185 logback [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.14]
+2019-04-18 00:04:24.191 logback [main] INFO  o.a.c.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [E:\java\jdk1.8.0_131\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;D:\install\product\11.1.0\db_1\bin;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;E:\java\jdk1.8.0_131\bin;E:\java\jdk1.8.0_131\bin;E:\java\jdk1.8.0_131\jre\bin;E:\Android\sdk2\platform-tools;D:\mysql-5.7.19-winx64\bin;C:\MinGW\bin;C:\Program Files\MySQL\MySQL Utilities 1.6\;D:\apache-maven-3.5.2-bin\apache-maven-3.5.2\bin;D:\install\bin;D:\go\bin;D:\安装\Git\bin;C:\Users\SHEEO\AppData\Local\Programs\Python\Python36-32\Scripts\;C:\Users\SHEEO\AppData\Local\Programs\Python\Python36-32\;C:\Users\SHEEO\AppData\Local\Microsoft\WindowsApps;E:\Android\sdk2\platform-tools;D:\Tomcat\Tomcat9.0\bin;C:\MinGW\bin;E:\Go_WorkSpace\bin;D:\go\bin;D:\安装\Git\bin;C:\Users\SHEEO\AppData\Local\BypassRuntm;.]
+2019-04-18 00:04:24.301 logback [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-04-18 00:04:24.301 logback [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 3714 ms
+2019-04-18 00:04:24.358 logback [main] INFO  o.s.b.web.servlet.RegistrationBean - Filter characterEncodingFilter was not registered (possibly already registered?)
+2019-04-18 00:04:24.455 logback [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2019-04-18 00:04:25.406 logback [main] INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2019-04-18 00:04:26.409 logback [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-18 00:04:26.740 logback [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2019-04-18 00:04:26.762 logback [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-18 00:04:26.765 logback [main] INFO  c.z.s.SmartbackgroundApplication - Started SmartbackgroundApplication in 7.056 seconds (JVM running for 9.273)
+2019-04-18 00:04:36.564 logback [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-04-18 00:04:36.566 logback [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2019-04-18 00:04:36.584 logback [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 18 ms
+2019-04-18 00:27:26.771 logback [main] INFO  c.z.s.SmartbackgroundApplication - Starting SmartbackgroundApplication on DESKTOP-PGD1S01 with PID 12112 (E:\ForGraduate\smartbackground\target\classes started by SHEEO in E:\ForGraduate\smartbackground)
+2019-04-18 00:27:26.776 logback [main] INFO  c.z.s.SmartbackgroundApplication - No active profile set, falling back to default profiles: default
+2019-04-18 00:27:28.658 logback [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2019-04-18 00:27:28.670 logback [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2019-04-18 00:27:28.680 logback [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2019-04-18 00:27:28.680 logback [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.14]
+2019-04-18 00:27:28.687 logback [main] INFO  o.a.c.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [E:\java\jdk1.8.0_131\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;D:\install\product\11.1.0\db_1\bin;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;E:\java\jdk1.8.0_131\bin;E:\java\jdk1.8.0_131\bin;E:\java\jdk1.8.0_131\jre\bin;E:\Android\sdk2\platform-tools;D:\mysql-5.7.19-winx64\bin;C:\MinGW\bin;C:\Program Files\MySQL\MySQL Utilities 1.6\;D:\apache-maven-3.5.2-bin\apache-maven-3.5.2\bin;D:\install\bin;D:\go\bin;D:\安装\Git\bin;C:\Users\SHEEO\AppData\Local\Programs\Python\Python36-32\Scripts\;C:\Users\SHEEO\AppData\Local\Programs\Python\Python36-32\;C:\Users\SHEEO\AppData\Local\Microsoft\WindowsApps;E:\Android\sdk2\platform-tools;D:\Tomcat\Tomcat9.0\bin;C:\MinGW\bin;E:\Go_WorkSpace\bin;D:\go\bin;D:\安装\Git\bin;C:\Users\SHEEO\AppData\Local\BypassRuntm;.]
+2019-04-18 00:27:28.821 logback [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-04-18 00:27:28.822 logback [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1886 ms
+2019-04-18 00:27:28.902 logback [main] INFO  o.s.b.web.servlet.RegistrationBean - Filter characterEncodingFilter was not registered (possibly already registered?)
+2019-04-18 00:27:29.159 logback [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2019-04-18 00:27:29.656 logback [main] INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2019-04-18 00:27:30.204 logback [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-18 00:27:30.498 logback [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2019-04-18 00:27:30.517 logback [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-18 00:27:30.520 logback [main] INFO  c.z.s.SmartbackgroundApplication - Started SmartbackgroundApplication in 4.462 seconds (JVM running for 5.472)
+2019-04-18 00:30:42.183 logback [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-04-18 00:30:42.183 logback [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2019-04-18 00:30:42.194 logback [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 11 ms
+2019-04-18 00:30:42.383 logback [http-nio-8080-exec-1] INFO  c.z.s.controller.LoginController - 收到第1次登录请求   18829071821登录成功 status:1
+2019-04-18 00:31:49.529 logback [http-nio-8080-exec-4] INFO  c.z.s.controller.LoginController - 收到第2次登录请求   18829071821登录成功 status:1
+2019-04-18 00:36:12.208 logback [main] INFO  c.z.s.SmartbackgroundApplication - Starting SmartbackgroundApplication on DESKTOP-PGD1S01 with PID 9688 (E:\ForGraduate\smartbackground\target\classes started by SHEEO in E:\ForGraduate\smartbackground)
+2019-04-18 00:36:12.212 logback [main] INFO  c.z.s.SmartbackgroundApplication - No active profile set, falling back to default profiles: default
+2019-04-18 00:36:14.110 logback [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2019-04-18 00:36:14.124 logback [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2019-04-18 00:36:14.132 logback [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2019-04-18 00:36:14.133 logback [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.14]
+2019-04-18 00:36:14.140 logback [main] INFO  o.a.c.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [E:\java\jdk1.8.0_131\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;D:\install\product\11.1.0\db_1\bin;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;E:\java\jdk1.8.0_131\bin;E:\java\jdk1.8.0_131\bin;E:\java\jdk1.8.0_131\jre\bin;E:\Android\sdk2\platform-tools;D:\mysql-5.7.19-winx64\bin;C:\MinGW\bin;C:\Program Files\MySQL\MySQL Utilities 1.6\;D:\apache-maven-3.5.2-bin\apache-maven-3.5.2\bin;D:\install\bin;D:\go\bin;D:\安装\Git\bin;C:\Users\SHEEO\AppData\Local\Programs\Python\Python36-32\Scripts\;C:\Users\SHEEO\AppData\Local\Programs\Python\Python36-32\;C:\Users\SHEEO\AppData\Local\Microsoft\WindowsApps;E:\Android\sdk2\platform-tools;D:\Tomcat\Tomcat9.0\bin;C:\MinGW\bin;E:\Go_WorkSpace\bin;D:\go\bin;D:\安装\Git\bin;C:\Users\SHEEO\AppData\Local\BypassRuntm;.]
+2019-04-18 00:36:14.252 logback [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-04-18 00:36:14.252 logback [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1803 ms
+2019-04-18 00:36:14.295 logback [main] INFO  o.s.b.web.servlet.RegistrationBean - Filter characterEncodingFilter was not registered (possibly already registered?)
+2019-04-18 00:36:14.352 logback [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2019-04-18 00:36:14.739 logback [main] INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2019-04-18 00:36:15.326 logback [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-18 00:36:15.576 logback [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2019-04-18 00:36:15.613 logback [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-18 00:36:15.617 logback [main] INFO  c.z.s.SmartbackgroundApplication - Started SmartbackgroundApplication in 4.495 seconds (JVM running for 5.446)
+2019-04-18 00:38:37.297 logback [http-nio-8080-exec-7] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-04-18 00:38:37.298 logback [http-nio-8080-exec-7] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2019-04-18 00:38:37.308 logback [http-nio-8080-exec-7] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 10 ms
+2019-04-18 00:38:37.533 logback [http-nio-8080-exec-7] INFO  c.z.s.controller.LoginController - 收到第1次登录请求   13542533427登录成功 status:0
+2019-04-18 00:39:34.899 logback [http-nio-8080-exec-1] INFO  c.z.s.controller.LoginController - 收到第2次登录请求   13542533427登录成功 status:0
+2019-04-18 00:41:58.239 logback [http-nio-8080-exec-7] INFO  c.z.s.controller.LoginController - 收到第3次登录请求   13542533427登录成功 status:0
+2019-04-18 00:59:03.523 logback [http-nio-8080-exec-1] INFO  c.z.s.controller.LoginController - 收到第4次登录请求   13542533427登录成功 status:0
+2019-04-18 01:01:41.056 logback [http-nio-8080-exec-7] INFO  c.z.s.controller.LoginController - 收到第5次登录请求   13542533427登录成功 status:0

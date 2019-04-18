@@ -276,6 +276,13 @@ public class UserServiceImpl implements UserService{
         }
         return s;
     }
+
+    @Override
+    public int editDoctor(Doctor doctor) {
+
+        return doctorMapper.updateByPrimaryKeySelective(doctor);
+    }
+
     @Override
     public int addPatient(User u,Patient p){
         u.setUserStatus(1);

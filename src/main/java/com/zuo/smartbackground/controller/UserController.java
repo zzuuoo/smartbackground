@@ -2,8 +2,9 @@ package com.zuo.smartbackground.controller;
 
 import com.zuo.smartbackground.model.*;
 import com.zuo.smartbackground.service.UserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,6 +14,8 @@ import java.util.List;
 @RequestMapping("/user")
 public class UserController {
 
+    private Logger logger = LoggerFactory.getLogger(UserController.class);
+
     @Autowired
     private UserService userService;
 
@@ -20,18 +23,21 @@ public class UserController {
     @RequestMapping(value = "getAdminByAccount",method = RequestMethod.GET)
     public Admin getAdminByAccount(String account)
     {
+        logger.info("getAdminByAccount,account:"+account);
         return userService.getAdminByAccount(account);
     }
 
     @RequestMapping(value = "getDoctorByAccount",method = RequestMethod.GET)
     public Doctor getDoctorByAccount(String account)
     {
+        logger.info("getDoctorByAccount,account:"+account);
         return userService.getDoctorByAccount(account);
     }
 
     @RequestMapping(value = "getPatientByAccount",method = RequestMethod.GET)
     public Patient getPatientByAccount(String account)
     {
+        logger.info("getPatientByAccount,account:"+account);
         return userService.getPatientByAccount(account);
     }
 
@@ -65,6 +71,7 @@ public class UserController {
     @RequestMapping(value = "deleteUser",method = RequestMethod.POST)
     public int deleteUser(User user)
     {
+        logger.info("deleteUser,UserAccount and status:",user.getAccount(),user.getUserStatus());
         return userService.deleteUser(user);
     }
 
@@ -102,7 +109,7 @@ public class UserController {
         return userService.updatePatient(patient);
     }
 
-    @RequestMapping(value = "updateDoctor",method = RequestMethod.POST)
+        @RequestMapping(value = "updateDoctor",method = RequestMethod.POST)
     public int updateDoctor(Doctor doctor)
     {
         return userService.updateDoctor(doctor);
@@ -170,6 +177,29 @@ public class UserController {
         doctor.setSex(dUser.getSex());
         return userService.addDoctor(user,doctor);
     }
+
+    @RequestMapping(value = "editDoctor",method = RequestMethod.POST)
+    public int editDoctor(DUser dUser){
+        System.out.println(dUser.toString());
+        User user = new User();
+        user.setUserStatus(2);
+        user.setAccount(dUser.getAccount());
+        if (dUser.getPassword()!=null&&dUser.getPassword()!=""){
+            user.setPassword(dUser.getPassword());
+            userService.updateUser(user);
+        }
+        Doctor doctor = new Doctor();
+        doctor.setDoctorId(dUser.getDoctorId());
+        doctor.setAccount(dUser.getAccount());
+        doctor.setHonour(dUser.getHonour());
+        doctor.setPhone(dUser.getPhone());
+        doctor.setSectionId(dUser.getSectionId());
+        doctor.setName(dUser.getName());
+        doctor.setIdNumber(dUser.getIdNumber());
+        doctor.setSex(dUser.getSex());
+        return userService.editDoctor(doctor);
+    }
+
 
 
 }

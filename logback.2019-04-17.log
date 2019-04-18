@@ -1,4 +1,0 @@
-2019-04-17 23:26:23.221 logback [http-nio-8080-exec-10] INFO  c.z.s.controller.LoginController - 收到第7次登录请求   13542533427登录成功 status:0
-2019-04-17 23:45:13.069 logback [http-nio-8080-exec-6] INFO  c.z.s.controller.LoginController - 收到第8次登录请求   17868814537登录成功 status:2
-2019-04-17 23:46:33.143 logback [http-nio-8080-exec-1] INFO  c.z.s.controller.LoginController - 收到第9次登录请求   17868814537登录成功 status:2
-2019-04-17 23:50:26.017 logback [http-nio-8080-exec-7] INFO  c.z.s.controller.LoginController - 收到第10次登录请求   17868814537登录成功 status:2

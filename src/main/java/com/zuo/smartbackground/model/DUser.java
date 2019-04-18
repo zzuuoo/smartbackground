@@ -2,6 +2,8 @@ package com.zuo.smartbackground.model;
 
 public class DUser {
 
+    private Integer doctorId;
+    private String account;
     private String name;
     private String phone;
     private String password;
@@ -9,6 +11,22 @@ public class DUser {
     private int sectionId;
     private String honour;
     private int sex;//1 男 0女
+
+    public Integer getDoctorId() {
+        return doctorId;
+    }
+
+    public void setDoctorId(Integer doctorId) {
+        this.doctorId = doctorId;
+    }
+
+    public String getAccount() {
+        return account;
+    }
+
+    public void setAccount(String account) {
+        this.account = account;
+    }
 
     public String toString(){
         return phone+password+name+idNumber+honour+sex;

@@ -31,6 +31,19 @@ public class BookServiceImpl implements BookService {
     @Override
     @Transactional(isolation = Isolation.READ_COMMITTED)
     public int createBook(CBook cbook) {
+
+        //todo 在此处应该增加一个判断，判断该病人的挂号是否重复或者冲突
+        Schedule schedule = scheduleMapper.selectByPrimaryKey(cbook.getScheduleId());
+        BookExample bookExample = new BookExample();
+        bookExample.createCriteria().andScheduleIdEqualTo(cbook.getScheduleId())
+                .andIsAvaliablityEqualTo(true).andIsCancleEqualTo(false);
+        List<Book> books = bookMapper.selectByExample(bookExample);
+        if(books!=null&&books.size()>0){
+            //有冲突
+            return 2;
+        }
+
+
         int res = 0;
         res = scheduleMapper.updateRemainder(cbook.getScheduleId());
 

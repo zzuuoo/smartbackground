@@ -185,8 +185,13 @@ public class UserController {
         user.setUserStatus(2);
         user.setAccount(dUser.getAccount());
         if (dUser.getPassword()!=null&&dUser.getPassword()!=""){
+            logger.info("更新医生密码：",dUser.getPassword(),dUser.getAccount());
             user.setPassword(dUser.getPassword());
-            userService.updateUser(user);
+            if (userService.updateUser(user)==1){
+                logger.info("更新医生密码成功");
+            }else{
+                logger.info("更新医生密码失败");
+            }
         }
         Doctor doctor = new Doctor();
         doctor.setDoctorId(dUser.getDoctorId());

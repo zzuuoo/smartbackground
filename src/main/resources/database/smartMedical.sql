@@ -47,6 +47,7 @@ INSERT INTO `user` VALUES ('7', '18829071825', '123456', '2','一一一一一一
 INSERT INTO `user` VALUES ('8', '18829071826', '123456', '2','一一一一一一');
 INSERT INTO `user` VALUES ('9', '18829071827', '123456', '2','一一一一一一');
 INSERT INTO `user` VALUES ('10', '18829071828', '123456', '2','一一一一一一');
+INSERT INTO `user` VALUES ('11', '18829071820', '123456', '1','111111');
 
 
 /*
@@ -131,8 +132,10 @@ CREATE TABLE `patient` (
 -- ----------------------------
 -- Records of patient
 -- ----------------------------
-INSERT INTO `patient` VALUES ('1','18829071821', '小星', '1',
+INSERT INTO `patient` VALUES ('1','18829071821', '左星星', '1',
 '18', '445381199901012544','18829071821','无');
+INSERT INTO `patient` VALUES ('2','18829071820', '周润发', '0',
+'18', '445381199901012533','18829071820','无');
 
 
 -- Table structure for doctor
@@ -186,9 +189,11 @@ INSERT INTO `doctor` VALUES ('5', '小红', '1', '18', '18829071825',
 INSERT INTO `doctor` VALUES ('6', '小广', '1', '18', '18829071826',
 '18829071825','wu ','wu',  '445381199808102733', '3','教授');
 INSERT INTO `doctor` VALUES ('7', '小华', '1', '18', '18829071827',
-'18829071825','wu ','wu',  '445381199808102733', '3','教授');
+'18829071825','wu ','wu',  '445381199808102733', '4','教授');
 INSERT INTO `doctor` VALUES ('8', '小迪', '1', '18', '18829071828',
-'18829071825','wu ','wu',  '445381199808102733', '3','教授');
+'18829071825','wu ','wu',  '445381199808102733', '4','教授');
+INSERT INTO `doctor` VALUES ('9', '左伟星', '1', '18', '18829071821',
+'18829071821','学习ing','学习能力强',  '445381199610292533', '1','实习生');
 
 
 
@@ -220,7 +225,10 @@ CREATE TABLE `admin` (
 -- Records of admin
 -- ----------------------------
 INSERT INTO `admin` VALUES ('1', '13542533427', '左左', '1','18',
-'445381199610292533','13542533427','wu');
+'445381199610292534','13542533427','wu');
+INSERT INTO `admin` VALUES ('2', '18829071821', '左伟星', '1','18',
+'445381199610292533','18829071821','广东省');
+
 
 
 
@@ -271,36 +279,6 @@ INSERT INTO `patient_record` VALUES ('1', '1', '1', '2017-08-11 08:00:00'
 ,'主诉','现病史','过去病史','个人史','家族史','体格检查','辅助检查','最后诊断');
 
 
--- ----------------------------
--- Table structure for book
--- ----------------------------
-/*
-    private int bookId;
-    private int doctorId;
-    private int patientId;
-    private Date bookTime;//预约时间
-    private boolean isAvaliablity;//是否生效
-    private boolean isCancle;//是否取消
-*/
-DROP TABLE IF EXISTS `book`;
-CREATE TABLE `book` (
-  `book_id` int(11) NOT NULL AUTO_INCREMENT,
-  `schedule_id` int(11) NOT NULL,
-  `patient_id` int(11) NOT NULL,
-  `book_time` datetime NOT NULL,
-  `is_avaliablity` boolean default true NOT NULL,
-  `is_cancle` boolean default false NOT NULL,
-  PRIMARY KEY (`book_id`),
-  KEY `FK_schedule_id` (`schedule_id`),
-  KEY `FK_patient_id` (`patient_id`),
-  CONSTRAINT `FK_schedule_id` FOREIGN KEY (`schedule_id`) REFERENCES `schedule` (`schedule_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `FK_patient_id` FOREIGN KEY (`patient_id`) REFERENCES `patient` (`patient_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='预约表';
-
--- ----------------------------
--- Records of book
--- ----------------------------
-INSERT INTO `book` VALUES ('1', '1', '1', '2020-08-11 08:00:00', '1','0');
 
 /*
 1.预约挂号需要在2小时内支付费用，请于就诊前半小时至各楼层自助机上进行报到取号等候就诊
@@ -338,8 +316,41 @@ INSERT INTO `schedule` VALUES ('1', '1','1', '40', '2029-03-05','0');
 INSERT INTO `schedule` VALUES ('2', '1','2', '40', '2029-03-07','0');
 INSERT INTO `schedule` VALUES ('3', '1','1', '40', '2029-03-08','0');
 INSERT INTO `schedule` VALUES ('4', '2','1', '40', '2029-03-09','0');
+INSERT INTO `schedule` VALUES ('5', '1','2', '30', '2029-03-05','0');
 
 
+-- ----------------------------
+-- Table structure for book
+-- ----------------------------
+/*
+    private int bookId;
+    private int doctorId;
+    private int patientId;
+    private Date bookTime;//预约时间
+    private boolean isAvaliablity;//是否生效
+    private boolean isCancle;//是否取消
+*/
+DROP TABLE IF EXISTS `book`;
+CREATE TABLE `book` (
+  `book_id` int(11) NOT NULL AUTO_INCREMENT,
+  `schedule_id` int(11) NOT NULL,
+  `patient_id` int(11) NOT NULL,
+  `book_time` datetime NOT NULL,
+  `is_avaliablity` boolean default true NOT NULL,
+  `is_cancle` boolean default false NOT NULL,
+  PRIMARY KEY (`book_id`),
+  KEY `FK_schedule_id` (`schedule_id`),
+  KEY `FK_patient_id` (`patient_id`),
+  CONSTRAINT `FK_schedule_id` FOREIGN KEY (`schedule_id`) REFERENCES `schedule` (`schedule_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `FK_patient_id` FOREIGN KEY (`patient_id`) REFERENCES `patient` (`patient_id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='预约表';
 
+-- ----------------------------
+-- Records of book
+-- ----------------------------
+/*
+INSERT INTO `book` VALUES ('1', '1', '1', '2020-08-11 08:00:00', '1','0');
+update schedule s set remainder = s.remainder-1 where s.schedule_id = 1;
+*/
 
 

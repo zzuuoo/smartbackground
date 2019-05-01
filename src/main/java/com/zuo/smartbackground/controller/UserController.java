@@ -206,5 +206,21 @@ public class UserController {
     }
 
 
+    @RequestMapping(value = "addPatient",method = RequestMethod.POST)
+    public int addPatient(PUser pUser){
+//        System.out.println(dUser.toString());
+        User user = new User();
+        user.setUserStatus(2);
+        user.setAccount(pUser.getAccount());
+        user.setPassword(pUser.getPassword());
+        Patient patient = new Patient();
+        patient.setAccount(pUser.getAccount());
+        patient.setIdNumber(pUser.getIdNumber());
+        patient.setPhone(pUser.getAccount());
+        patient.setName(pUser.getName());
+        return userService.addPatient(user,patient);
+    }
+
+
 
 }

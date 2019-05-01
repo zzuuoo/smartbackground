@@ -8,6 +8,7 @@ import com.zuo.smartbackground.model.*;
 import com.zuo.smartbackground.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -273,6 +274,9 @@ public class UserServiceImpl implements UserService{
         int s = 0;
         if(u==1){
             s = doctorMapper.insertSelective(doctor);
+            if(s!=1){
+                userMapper.deleteByExample(userExample);
+            }
         }
         return s;
     }
@@ -283,8 +287,9 @@ public class UserServiceImpl implements UserService{
         return doctorMapper.updateByPrimaryKeySelective(doctor);
     }
 
+    @Transactional
     @Override
-    public int addPatient(User u,Patient p){
+    public int addPatient(User u,Patient p) {
         u.setUserStatus(1);
         UserExample userExample = new UserExample();
         userExample.createCriteria().andUserStatusEqualTo(u.getUserStatus())
@@ -295,6 +300,13 @@ public class UserServiceImpl implements UserService{
         }
         int c = userMapper.insertSelective(u);
         if(c==1){
+            PatientExample patientExample = new PatientExample();
+            patientExample.createCriteria().andIdNumberEqualTo(p.getIdNumber());
+            List<Patient> patients = patientMapper.selectByExample(patientExample);
+            if(patients!=null&&patients.size()>0){
+                userMapper.deleteByExample(userExample);
+                return -2;
+            }
             return patientMapper.insertSelective(p);
         }
         return 0;
@@ -313,8 +325,11 @@ public class UserServiceImpl implements UserService{
         }
         int c = userMapper.insertSelective(user);
         if(c==1){
-            return adminMapper.insertSelective(admin);
+            c = adminMapper.insertSelective(admin);
         }
-        return 0;
+        if (c != 1){
+            userMapper.deleteByExample(userExample);
+        }
+        return c;
     }
 }

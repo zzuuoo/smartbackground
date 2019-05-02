@@ -1,23 +1,53 @@
-2019-05-01 19:04:01.447 logback [http-nio-8080-exec-1] INFO  c.z.s.controller.LoginController - 收到第4次登录请求   17868814537登录成功 status:2
-2019-05-01 19:04:03.089 logback [http-nio-8080-exec-3] INFO  c.z.s.controller.UserController - getDoctorByAccount,account:17868814537
-2019-05-01 19:04:35.499 logback [http-nio-8080-exec-4] INFO  c.z.s.controller.LoginController - 收到第5次登录请求   18829071821登录成功 status:1
-2019-05-01 19:45:19.783 logback [main] INFO  c.z.s.SmartbackgroundApplication - Starting SmartbackgroundApplication on DESKTOP-PGD1S01 with PID 4304 (E:\ForGraduate\smartbackground\target\classes started by SHEEO in E:\ForGraduate\smartbackground)
-2019-05-01 19:45:19.786 logback [main] INFO  c.z.s.SmartbackgroundApplication - No active profile set, falling back to default profiles: default
-2019-05-01 19:45:21.853 logback [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
-2019-05-01 19:45:21.885 logback [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
-2019-05-01 19:45:21.895 logback [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2019-05-01 19:45:21.895 logback [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.14]
-2019-05-01 19:45:21.901 logback [main] INFO  o.a.c.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [E:\java\jdk1.8.0_131\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;D:\install\product\11.1.0\db_1\bin;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;E:\java\jdk1.8.0_131\bin;E:\java\jdk1.8.0_131\bin;E:\java\jdk1.8.0_131\jre\bin;E:\Android\sdk2\platform-tools;D:\mysql-5.7.19-winx64\bin;C:\MinGW\bin;C:\Program Files\MySQL\MySQL Utilities 1.6\;D:\apache-maven-3.5.2-bin\apache-maven-3.5.2\bin;D:\go\bin;D:\安装\Git\bin;C:\Users\SHEEO\AppData\Local\Programs\Python\Python36-32\Scripts\;C:\Users\SHEEO\AppData\Local\Programs\Python\Python36-32\;C:\Users\SHEEO\AppData\Local\Microsoft\WindowsApps;E:\Android\sdk2\platform-tools;D:\Tomcat\Tomcat9.0\bin;C:\MinGW\bin;E:\Go_WorkSpace\bin;D:\go\bin;D:\安装\Git\bin;C:\Users\SHEEO\AppData\Local\BypassRuntm;.]
-2019-05-01 19:45:22.019 logback [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2019-05-01 19:45:22.019 logback [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2148 ms
-2019-05-01 19:45:22.088 logback [main] INFO  o.s.b.web.servlet.RegistrationBean - Filter characterEncodingFilter was not registered (possibly already registered?)
-2019-05-01 19:45:22.186 logback [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
-2019-05-01 19:45:22.769 logback [main] INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
-2019-05-01 19:45:23.290 logback [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
-2019-05-01 19:45:23.531 logback [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
-2019-05-01 19:45:23.553 logback [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
-2019-05-01 19:45:23.556 logback [main] INFO  c.z.s.SmartbackgroundApplication - Started SmartbackgroundApplication in 4.397 seconds (JVM running for 5.268)
-2019-05-01 19:47:49.060 logback [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2019-05-01 19:47:49.060 logback [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2019-05-01 19:47:49.069 logback [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 8 ms
-2019-05-01 19:47:59.297 logback [http-nio-8080-exec-3] INFO  c.z.s.controller.LoginController - 收到第1次登录请求   13542533321登录成功 status:1
+2019-05-02 11:08:16.205 logback [main] INFO  c.z.s.SmartbackgroundApplication - Starting SmartbackgroundApplication on DESKTOP-PGD1S01 with PID 11848 (E:\ForGraduate\smartbackground\target\classes started by SHEEO in E:\ForGraduate\smartbackground)
+2019-05-02 11:08:16.210 logback [main] INFO  c.z.s.SmartbackgroundApplication - No active profile set, falling back to default profiles: default
+2019-05-02 11:08:18.838 logback [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2019-05-02 11:08:18.855 logback [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2019-05-02 11:08:18.866 logback [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2019-05-02 11:08:18.867 logback [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.14]
+2019-05-02 11:08:18.875 logback [main] INFO  o.a.c.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [E:\java\jdk1.8.0_131\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;D:\install\product\11.1.0\db_1\bin;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;E:\java\jdk1.8.0_131\bin;E:\java\jdk1.8.0_131\bin;E:\java\jdk1.8.0_131\jre\bin;E:\Android\sdk2\platform-tools;D:\mysql-5.7.19-winx64\bin;C:\MinGW\bin;C:\Program Files\MySQL\MySQL Utilities 1.6\;D:\apache-maven-3.5.2-bin\apache-maven-3.5.2\bin;D:\go\bin;D:\安装\Git\bin;C:\Users\SHEEO\AppData\Local\Programs\Python\Python36-32\Scripts\;C:\Users\SHEEO\AppData\Local\Programs\Python\Python36-32\;C:\Users\SHEEO\AppData\Local\Microsoft\WindowsApps;E:\Android\sdk2\platform-tools;D:\Tomcat\Tomcat9.0\bin;C:\MinGW\bin;E:\Go_WorkSpace\bin;D:\go\bin;D:\安装\Git\bin;C:\Users\SHEEO\AppData\Local\BypassRuntm;.]
+2019-05-02 11:08:19.907 logback [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-05-02 11:08:19.909 logback [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 3505 ms
+2019-05-02 11:08:19.960 logback [main] INFO  o.s.b.web.servlet.RegistrationBean - Filter characterEncodingFilter was not registered (possibly already registered?)
+2019-05-02 11:08:20.020 logback [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2019-05-02 11:08:20.503 logback [main] INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2019-05-02 11:08:21.734 logback [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-05-02 11:08:22.451 logback [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2019-05-02 11:08:22.498 logback [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2019-05-02 11:08:22.501 logback [main] INFO  c.z.s.SmartbackgroundApplication - Started SmartbackgroundApplication in 7.079 seconds (JVM running for 20.72)
+2019-05-02 11:08:26.238 logback [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-05-02 11:08:26.238 logback [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2019-05-02 11:08:26.250 logback [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 12 ms
+2019-05-02 11:08:26.453 logback [http-nio-8080-exec-1] INFO  c.z.s.controller.LoginController - 收到第1次登录请求   13542533321登录成功 status:1
+2019-05-02 21:27:27.125 logback [http-nio-8080-exec-2] INFO  c.z.s.controller.LoginController - 收到第2次登录请求   13542533321登录成功 status:1
+2019-05-02 21:27:27.127 logback [http-nio-8080-exec-5] INFO  c.z.s.controller.LoginController - 收到第3次登录请求   13542533321登录成功 status:1
+2019-05-02 21:34:04.591 logback [main] INFO  c.z.s.SmartbackgroundApplication - Starting SmartbackgroundApplication on DESKTOP-PGD1S01 with PID 10248 (E:\ForGraduate\smartbackground\target\classes started by SHEEO in E:\ForGraduate\smartbackground)
+2019-05-02 21:34:04.596 logback [main] INFO  c.z.s.SmartbackgroundApplication - No active profile set, falling back to default profiles: default
+2019-05-02 21:34:07.208 logback [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2019-05-02 21:34:07.225 logback [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2019-05-02 21:34:07.234 logback [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2019-05-02 21:34:07.234 logback [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.14]
+2019-05-02 21:34:07.240 logback [main] INFO  o.a.c.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [E:\java\jdk1.8.0_131\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;D:\install\product\11.1.0\db_1\bin;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;E:\java\jdk1.8.0_131\bin;E:\java\jdk1.8.0_131\bin;E:\java\jdk1.8.0_131\jre\bin;E:\Android\sdk2\platform-tools;D:\mysql-5.7.19-winx64\bin;C:\MinGW\bin;C:\Program Files\MySQL\MySQL Utilities 1.6\;D:\apache-maven-3.5.2-bin\apache-maven-3.5.2\bin;D:\go\bin;D:\安装\Git\bin;C:\Users\SHEEO\AppData\Local\Programs\Python\Python36-32\Scripts\;C:\Users\SHEEO\AppData\Local\Programs\Python\Python36-32\;C:\Users\SHEEO\AppData\Local\Microsoft\WindowsApps;E:\Android\sdk2\platform-tools;D:\Tomcat\Tomcat9.0\bin;C:\MinGW\bin;E:\Go_WorkSpace\bin;D:\go\bin;D:\安装\Git\bin;C:\Users\SHEEO\AppData\Local\BypassRuntm;.]
+2019-05-02 21:34:07.334 logback [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-05-02 21:34:07.335 logback [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2640 ms
+2019-05-02 21:34:07.375 logback [main] INFO  o.s.b.web.servlet.RegistrationBean - Filter characterEncodingFilter was not registered (possibly already registered?)
+2019-05-02 21:34:07.435 logback [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2019-05-02 21:34:07.841 logback [main] INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2019-05-02 21:34:08.411 logback [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-05-02 21:34:08.667 logback [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2019-05-02 21:34:08.688 logback [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2019-05-02 21:34:08.691 logback [main] INFO  c.z.s.SmartbackgroundApplication - Started SmartbackgroundApplication in 4.742 seconds (JVM running for 5.566)
+2019-05-02 21:34:13.968 logback [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-05-02 21:34:13.968 logback [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2019-05-02 21:34:13.979 logback [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 11 ms
+2019-05-02 21:36:04.042 logback [http-nio-8080-exec-9] INFO  c.z.s.controller.LoginController - 收到1次登录请求，但是失败
+2019-05-02 21:36:15.317 logback [http-nio-8080-exec-1] INFO  c.z.s.controller.LoginController - 收到第2次登录请求   17868814537登录成功 status:2
+2019-05-02 21:36:16.050 logback [http-nio-8080-exec-4] INFO  c.z.s.controller.UserController - getDoctorByAccount,account:17868814537
+2019-05-02 21:57:09.566 logback [http-nio-8080-exec-8] INFO  c.z.s.controller.LoginController - 收到第3次登录请求   17868814537登录成功 status:2
+2019-05-02 21:57:10.718 logback [http-nio-8080-exec-9] INFO  c.z.s.controller.UserController - getDoctorByAccount,account:17868814537
+2019-05-02 21:58:45.438 logback [http-nio-8080-exec-5] INFO  c.z.s.controller.LoginController - 收到第4次登录请求   17868814537登录成功 status:2
+2019-05-02 21:58:48.404 logback [http-nio-8080-exec-8] INFO  c.z.s.controller.UserController - getDoctorByAccount,account:17868814537
+2019-05-02 21:59:04.820 logback [http-nio-8080-exec-2] INFO  c.z.s.controller.LoginController - 收到第5次登录请求   17868814537登录成功 status:2
+2019-05-02 21:59:06.037 logback [http-nio-8080-exec-4] INFO  c.z.s.controller.UserController - getDoctorByAccount,account:17868814537
+2019-05-02 22:00:02.094 logback [http-nio-8080-exec-8] INFO  c.z.s.controller.LoginController - 收到第6次登录请求   17868814537登录成功 status:2
+2019-05-02 22:00:03.640 logback [http-nio-8080-exec-9] INFO  c.z.s.controller.UserController - getDoctorByAccount,account:17868814537
+2019-05-02 22:02:16.238 logback [http-nio-8080-exec-3] INFO  c.z.s.controller.LoginController - 收到第7次登录请求   18829071821登录成功 status:1

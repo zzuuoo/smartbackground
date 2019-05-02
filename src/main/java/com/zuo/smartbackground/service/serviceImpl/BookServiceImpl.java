@@ -32,17 +32,24 @@ public class BookServiceImpl implements BookService {
     @Transactional(isolation = Isolation.READ_COMMITTED)
     public int createBook(CBook cbook) {
 
+        PatientExample patientExample = new PatientExample();
+        patientExample.createCriteria().andAccountEqualTo(cbook.getAccount());
+        List<Patient> patients = patientMapper.selectByExample(patientExample);
+        if(patients == null || patients.size()<1){
+            return 0;
+        }
         //todo 在此处应该增加一个判断，判断该病人的挂号是否重复或者冲突
         Schedule schedule = scheduleMapper.selectByPrimaryKey(cbook.getScheduleId());
         BookExample bookExample = new BookExample();
         bookExample.createCriteria().andScheduleIdEqualTo(cbook.getScheduleId())
-                .andIsAvaliablityEqualTo(true).andIsCancleEqualTo(false);
+                .andIsAvaliablityEqualTo(true)
+                .andIsCancleEqualTo(false)
+        .andPatientIdEqualTo(patients.get(0).getPatientId());
         List<Book> books = bookMapper.selectByExample(bookExample);
         if(books!=null&&books.size()>0){
             //有冲突
             return 2;
         }
-
 
         int res = 0;
         res = scheduleMapper.updateRemainder(cbook.getScheduleId());
@@ -54,9 +61,7 @@ public class BookServiceImpl implements BookService {
             book.setIsAvaliablity(true);
             book.setBookTime(new Date());
             book.setScheduleId(cbook.getScheduleId());
-            PatientExample patientExample = new PatientExample();
-            patientExample.createCriteria().andAccountEqualTo(cbook.getAccount());
-            List<Patient> patients = patientMapper.selectByExample(patientExample);
+
             if(patients==null||patients.size()<1){
                 return 0;
             }

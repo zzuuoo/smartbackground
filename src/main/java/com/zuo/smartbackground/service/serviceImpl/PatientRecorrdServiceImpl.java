@@ -1,5 +1,6 @@
 package com.zuo.smartbackground.service.serviceImpl;
 
+import com.zuo.smartbackground.dao.BookMapper;
 import com.zuo.smartbackground.dao.PatientMapper;
 import com.zuo.smartbackground.dao.PatientRecordMapper;
 import com.zuo.smartbackground.model.*;
@@ -8,6 +9,8 @@ import com.zuo.smartbackground.service.UserService;
 import io.swagger.models.auth.In;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +22,8 @@ public class PatientRecorrdServiceImpl implements PatientRecordService {
 
     @Autowired
     private PatientMapper patientMapper;
+    @Autowired
+    private BookMapper bookMapper;
     @Autowired
     private UserService userService;
     @Override
@@ -46,13 +51,25 @@ public class PatientRecorrdServiceImpl implements PatientRecordService {
     }
 
     @Override
+    @Transactional(isolation = Isolation.READ_COMMITTED)
     public int createPatientRecord(PatientRecord patientRecord) {
         PatientRecord patientRecord1 = getPatientRecordBySellf(patientRecord);
         if(patientRecord1!=null){
             patientRecord.setPatientRecordId(patientRecord1.getPatientRecordId());
             return patientRecordMapper.updateByPrimaryKeySelective(patientRecord);
         }
-        return patientRecordMapper.insertSelective(patientRecord);
+        int k = 0;
+        k= patientRecordMapper.insertSelective(patientRecord);
+        if(k==1){
+            BookExample bookExample = new BookExample();
+            bookExample.createCriteria().andScheduleIdEqualTo(patientRecord.getScheduleId())
+                    .andIsCancleEqualTo(false)
+                    .andPatientIdEqualTo(patientRecord.getPatientId());
+            Book book = new Book();
+            book.setIsAvaliablity(false);
+            bookMapper.updateByExampleSelective(book,bookExample);
+        }
+        return k;
     }
 
     @Override

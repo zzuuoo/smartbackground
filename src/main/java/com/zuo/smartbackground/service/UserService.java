@@ -22,7 +22,7 @@ public interface UserService {
     List<User> getUserByAccountAndStatus(String account,int status);
 
     int updateUser(User user);
-    int updateDoctor(Doctor doctor);
+        int updateDoctor(Doctor doctor);
     int updatePatient(Patient patient);
     int updateAdmin(Admin admin);
 

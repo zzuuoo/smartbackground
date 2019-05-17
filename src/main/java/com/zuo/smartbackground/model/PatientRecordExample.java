@@ -994,6 +994,66 @@ public class PatientRecordExample {
             addCriterion("diagnosis not between", value1, value2, "diagnosis");
             return (Criteria) this;
         }
+
+        public Criteria andScheduleIdIsNull() {
+            addCriterion("schedule_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andScheduleIdIsNotNull() {
+            addCriterion("schedule_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andScheduleIdEqualTo(Integer value) {
+            addCriterion("schedule_id =", value, "scheduleId");
+            return (Criteria) this;
+        }
+
+        public Criteria andScheduleIdNotEqualTo(Integer value) {
+            addCriterion("schedule_id <>", value, "scheduleId");
+            return (Criteria) this;
+        }
+
+        public Criteria andScheduleIdGreaterThan(Integer value) {
+            addCriterion("schedule_id >", value, "scheduleId");
+            return (Criteria) this;
+        }
+
+        public Criteria andScheduleIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("schedule_id >=", value, "scheduleId");
+            return (Criteria) this;
+        }
+
+        public Criteria andScheduleIdLessThan(Integer value) {
+            addCriterion("schedule_id <", value, "scheduleId");
+            return (Criteria) this;
+        }
+
+        public Criteria andScheduleIdLessThanOrEqualTo(Integer value) {
+            addCriterion("schedule_id <=", value, "scheduleId");
+            return (Criteria) this;
+        }
+
+        public Criteria andScheduleIdIn(List<Integer> values) {
+            addCriterion("schedule_id in", values, "scheduleId");
+            return (Criteria) this;
+        }
+
+        public Criteria andScheduleIdNotIn(List<Integer> values) {
+            addCriterion("schedule_id not in", values, "scheduleId");
+            return (Criteria) this;
+        }
+
+        public Criteria andScheduleIdBetween(Integer value1, Integer value2) {
+            addCriterion("schedule_id between", value1, value2, "scheduleId");
+            return (Criteria) this;
+        }
+
+        public Criteria andScheduleIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("schedule_id not between", value1, value2, "scheduleId");
+            return (Criteria) this;
+        }
     }
 
     /**

@@ -30,7 +30,7 @@ public class BookServiceImpl implements BookService {
 
     @Override
     @Transactional(isolation = Isolation.READ_COMMITTED)
-    public int createBook(CBook cbook) {
+        public int createBook(CBook cbook) {
 
         PatientExample patientExample = new PatientExample();
         patientExample.createCriteria().andAccountEqualTo(cbook.getAccount());
@@ -164,7 +164,6 @@ public class BookServiceImpl implements BookService {
         BookExample bookExample =new BookExample();
         bookExample.createCriteria()
                 .andPatientIdEqualTo(patients.get(0).getPatientId())
-        .andIsAvaliablityEqualTo(true)
         .andIsCancleEqualTo(false);
         List<Book> books = bookMapper.selectByExample(bookExample);
         List<BookDocSche> bookDocSches = new ArrayList<>();
@@ -184,7 +183,7 @@ public class BookServiceImpl implements BookService {
                         BookDocSche docSche = new BookDocSche();
                         docSche.setBook(book);
                         docSche.setDoctor(d.get(0));
-                        docSche.setSchedule(s.get(0));
+                        docSche.setSchedule(s1);
                         bookDocSches.add(docSche);
                     }
 
@@ -197,7 +196,7 @@ public class BookServiceImpl implements BookService {
     public List<BookPatientSche> showBookForDoctor(Integer scheduleId) {
         BookExample bookExample = new BookExample();
         bookExample.createCriteria().andScheduleIdEqualTo(scheduleId)
-        .andIsCancleEqualTo(false).andIsAvaliablityEqualTo(true);
+        .andIsCancleEqualTo(false);
         List<Book> books = bookMapper.selectByExample(bookExample);
         if(books==null||books.size()<1){
             return null;

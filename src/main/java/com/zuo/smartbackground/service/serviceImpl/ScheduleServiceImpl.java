@@ -178,7 +178,7 @@ public class ScheduleServiceImpl implements ScheduleService{
             book.setIsCancle(true);
             book.setIsAvaliablity(false);
             int k = bookMapper.updateByExampleSelective(book,bookExample);
-            return k;
+//            return k;
         }
         return w;
 //        return scheduleMapper.deleteByPrimaryKey(scheduleId);

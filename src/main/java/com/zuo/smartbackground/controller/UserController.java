@@ -17,7 +17,7 @@ public class UserController {
     private Logger logger = LoggerFactory.getLogger(UserController.class);
 
     @Autowired
-    private UserService userService;
+        private UserService userService;
 
 
     @RequestMapping(value = "getAdminByAccount",method = RequestMethod.GET)

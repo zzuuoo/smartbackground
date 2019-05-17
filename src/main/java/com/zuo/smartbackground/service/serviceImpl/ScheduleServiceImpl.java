@@ -142,6 +142,8 @@ public class ScheduleServiceImpl implements ScheduleService{
 
     @Override
     public List<Schedule> getAllSchedule() {
+//        ScheduleExample scheduleExample = new ScheduleExample();
+//        scheduleExample.createCriteria().andIsCancleEqualTo(false);
         return scheduleMapper.selectByExample(null);
     }
 
@@ -161,9 +163,25 @@ public class ScheduleServiceImpl implements ScheduleService{
         return scheduleMapper.selectByExample(scheduleExample);
     }
 
+    @Transactional(isolation = Isolation.READ_COMMITTED)
     @Override
     public int deleteSchedule(int scheduleId) {
-        return scheduleMapper.deleteByPrimaryKey(scheduleId);
+        Schedule schedule = new Schedule();
+        schedule.setIsCancle(true);
+        schedule.setScheduleId(scheduleId);
+        int w = scheduleMapper.updateByPrimaryKeySelective(schedule);
+        if(w==1){
+            BookExample bookExample = new BookExample();
+            bookExample.createCriteria().andIsCancleEqualTo(false)
+                    .andScheduleIdEqualTo(scheduleId);
+            Book book = new Book();
+            book.setIsCancle(true);
+            book.setIsAvaliablity(false);
+            int k = bookMapper.updateByExampleSelective(book,bookExample);
+//            return k;
+        }
+        return w;
+//        return scheduleMapper.deleteByPrimaryKey(scheduleId);
     }
 
     @Override

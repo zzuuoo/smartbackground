@@ -89,6 +89,10 @@ public class ScheduleController {
 
     @RequestMapping(value = "/deleteSchedule",method = RequestMethod.GET)
     public int deleteSchedule(int scheduleId){
+//        Schedule schedule = new Schedule();
+//        schedule.setScheduleId(scheduleId);
+//        schedule.setIsCancle(true);
+//        return scheduleService.updateSchedule(schedule);
         return scheduleService.deleteSchedule(scheduleId);
     }
     @RequestMapping(value ="/getScheduleByDoctorAccount",method = RequestMethod.GET)

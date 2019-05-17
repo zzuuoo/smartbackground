@@ -132,7 +132,7 @@ CREATE TABLE `patient` (
 -- ----------------------------
 -- Records of patient
 -- ----------------------------
-INSERT INTO `patient` VALUES ('1','18829071821', '左星星', '1',
+INSERT INTO `patient` VALUES ('1','18829071821', '左伟星', '1',
 '18', '445381199901012544','18829071821','无');
 INSERT INTO `patient` VALUES ('2','18829071820', '周润发', '0',
 '18', '445381199901012533','18829071820','无');
@@ -265,6 +265,7 @@ CREATE TABLE `patient_record` (
   `physical_examination` varchar(20),
   `therapeutic_examination` varchar(20),
   `diagnosis` varchar(20),
+  `schedule_id` int(11) NOT NULL,
   PRIMARY KEY (`patient_record_id`),
   KEY `FK_patient` (`patient_id`),
   KEY `FK_doctor` (`doctor_id`),
@@ -276,7 +277,7 @@ CREATE TABLE `patient_record` (
 -- Records of patient_record
 -- ----------------------------
 INSERT INTO `patient_record` VALUES ('1', '1', '1', '2017-08-11 08:00:00'
-,'主诉','现病史','过去病史','个人史','家族史','体格检查','辅助检查','最后诊断');
+,'主诉','现病史','过去病史','个人史','家族史','体格检查','辅助检查','最后诊断','1');
 
 
 

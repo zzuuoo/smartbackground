@@ -35,6 +35,7 @@ public class PatientRecordController {
         patientRecord.setDiagnosis(patientRecordT.getDiagnosis());
         patientRecord.setDoctorId(patientRecordT.getDoctorId());
         patientRecord.setPatientId(patientRecordT.getPatientId());
+        patientRecord.setScheduleId(patientRecordT.getScheduleId());
         patientRecord.setNowHistory(patientRecordT.getNowHistory());
         patientRecord.setPhysicalExamination(patientRecordT.getPhysicalExamination());
         patientRecord.setTherapeuticExamination(patientRecordT.getTherapeuticExamination());
@@ -48,7 +49,7 @@ public class PatientRecordController {
         patientRecord.setAdmissionTime(new Date(patientRecordT.getAdmissionTime()));
         patientRecord.setDoctorId(patientRecordT.getDoctorId());
         patientRecord.setPatientId(patientRecordT.getPatientId());
-
+        patientRecord.setScheduleId(patientRecordT.getScheduleId());
         return patientRecordService.getPatientRecordBySellf(patientRecord);
     }
 

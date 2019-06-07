@@ -21,4 +21,10 @@ public class TestController {
         logger.error("日志输出 error");
         return "ok";
     }
+    @RequestMapping("/checkIntercept")
+    public String checkIntercept()
+    {
+        logger.info("intercept ok");
+        return "ok";
+    }
 }

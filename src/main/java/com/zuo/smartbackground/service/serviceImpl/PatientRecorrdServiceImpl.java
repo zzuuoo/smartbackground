@@ -86,7 +86,9 @@ public class PatientRecorrdServiceImpl implements PatientRecordService {
     public PatientRecord getPatientRecordBySellf(PatientRecord patientRecord) {
         PatientRecordExample patientRecordExample = new PatientRecordExample();
         patientRecordExample.createCriteria().andPatientIdEqualTo(patientRecord.getPatientId())
-                .andDoctorIdEqualTo(patientRecord.getDoctorId()).andAdmissionTimeEqualTo(patientRecord.getAdmissionTime());
+                .andDoctorIdEqualTo(patientRecord.getDoctorId())
+                .andAdmissionTimeEqualTo(patientRecord.getAdmissionTime())
+        .andScheduleIdEqualTo(patientRecord.getScheduleId());
         List<PatientRecord> patientRecords = patientRecordMapper.selectByExample(patientRecordExample);
         if(patientRecords!=null&&patientRecords.size()>0){
             return patientRecords.get(0);
@@ -109,7 +111,10 @@ public class PatientRecorrdServiceImpl implements PatientRecordService {
             pid.add(p.getPatientId());
         }
         PatientExample patientExample = new PatientExample();
-        patientExample.createCriteria().andPatientIdIn(pid);
+        if(pid.size()>0){
+            patientExample.createCriteria().andPatientIdIn(pid);
+        }
+
         List<Patient> patients = patientMapper.selectByExample(patientExample);
 
         List<PPatientRecord> list = new ArrayList<>();

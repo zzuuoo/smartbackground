@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -29,7 +30,7 @@ public class LoginController {
     public static  int n = 1;
 
     @RequestMapping(value = "/login",method = RequestMethod.POST)
-    public User login(User re, HttpServletRequest request, HttpSession session)
+    public User login(User re, HttpServletRequest request, HttpSession session, HttpServletResponse response)
     {
         User u = loginService.login(re);
         if(u!=null) {
@@ -46,6 +47,8 @@ public class LoginController {
 //                    System.out.println(cookie.getName() + " : " + cookie.getValue());
 //                }
 //            }
+            Cookie cookie = new Cookie("vxflag","f71e5f1e08cd5a7e42a7e9aa70d22458");
+            response.addCookie(cookie);
             logger.info("收到第" + (n++) + "次登录请求   "+u.getAccount()+"登录成功"+" status:"+u.getUserStatus());
 //            System.out.println("收到" + (n++) + "次登录请求，并成功：" + u.getAccount());
         }
@@ -53,6 +56,7 @@ public class LoginController {
             logger.info("收到"+(n++)+"次登录请求，但是失败");
 //            System.out.println("收到"+(n++)+"次登录请求，但是失败");
         }
+//        response.addCookie();
         return u;
 
     }
